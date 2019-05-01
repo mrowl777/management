@@ -71,7 +71,7 @@ class db_handler {
 
     function get_users_table(){
         $db_helper = $this->connect_db();
-        $query = "SELECT * FROM `panel_users`";
+        $query = "SELECT * FROM ` staff_data`";
         $panel_users = $db_helper->query( $query );
         $this->close_connection( $db_helper );
 
@@ -144,41 +144,6 @@ class db_handler {
         $result = $result->fetch_assoc();
 
         return $result['value'];
-    }
-
-    function get_targets(){
-        $db_helper = $this->connect_db();
-        $query = "SELECT * FROM `targets`";
-        $targets = $db_helper->query( $query );
-        $this->close_connection( $db_helper );
-
-        return $targets;
-    }
-
-    function remove_target( $key ){
-        $db_helper = $this->connect_db();
-        $query = "DELETE FROM `targets` WHERE `vk_id` = '".$key."'";
-        $db_helper->query( $query );
-        $this->close_connection( $db_helper );
-    }
-
-    function add_target( $id, $f_name, $l_name ){
-        $db_helper = $this->connect_db();
-        $query = "INSERT INTO `targets`(`id`, `vk_id`, `first_name`, `last_name`, `is_active`) VALUES ('','".$id."','".$f_name."','".$l_name."','1')";
-        $db_helper->query( $query );
-        $this->close_connection( $db_helper );
-    }
-
-    function toggle_target( $id ){
-        $db_helper = $this->connect_db();
-        $query = "SELECT is_active FROM `targets` WHERE `vk_id` = '".$id."'";
-        $rights = $db_helper->query( $query );
-        $rights = $rights->fetch_assoc();
-        $rights = $rights['is_active'];
-        $is_admin = $rights === '1' ? 'is_active = "0"' : 'is_active = "1"';
-        $query = "UPDATE targets SET ".$is_admin." WHERE vk_id = '" . $id . "'";
-        $db_helper->query( $query );
-        $this->close_connection( $db_helper );
     }
 }
 ?>

@@ -51,15 +51,15 @@ class MainController extends db_handler {
         while ($row = $users_table->fetch_assoc()) {
             $users[] = array(
                 'id' => $row["id"], 
-                'nickname' => $row["nickname"], 
-                'password' => $row["password"],
-                'hash' => $row["hash"],
-                'is_admin' => $row["is_admin"],
-                'reg_date' => $row["reg_date"],
+                'first_name' => $row["first_name"], 
+                'last_name' => $row["last_name"],
+                'surname' => $row["surname"],
+                'is_active' => $row["is_active"],
+                'work_time_type' => $row["work_time_type"],
             );
         }
 
-        $DATA['panel_users'] = $users;
+        $DATA['staffs'] = $users;
 
         $html = websun_parse_template_path($DATA, $tpl); 
 
