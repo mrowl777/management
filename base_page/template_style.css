@@ -1,0 +1,123 @@
+@import url('fa.css');
+@import url('form.css');
+body {
+	margin: 0;
+	padding: 0;
+	line-height: 1.5em;
+	font-family: Verdana, Arial, san-serif;
+	font-size: 12px;
+	color: #e7eaeb;
+	background: url(images/templatemo_gradient_bg.jpg);
+}
+
+a:link, a:visited { color: #00a1ff; text-decoration: none; font-weight: bold; } 
+a:active, a:hover { color: #00a1ff; text-decoration: underline; }
+
+p {
+	margin: 0px;
+	padding: 0px;
+}
+
+img {
+	margin: 0px;
+	padding: 0px;
+	border: none;
+}
+
+#container {
+	width: 960px;
+	margin: 0 auto;
+	padding: 0 10px 10px 10px;
+}
+.indentmenu{
+	font: bold 14px Arial;
+	height: 58px;
+	width: 958px; 
+	margin-bottom: 20px;
+}
+
+.indentmenu ul{
+	margin: 0;
+	padding: 0;
+	height: 58px;
+}
+
+.indentmenu ul li{
+	display: inline;
+}
+
+.indentmenu ul li a{
+	cursor: pointer;
+	float: left;
+	color: white;
+	width: 16.44%;
+	text-align: center;
+	height: 40px;
+	padding-top: 18px;
+	text-decoration: none;
+	border-right: 2px solid #000; 
+	background: url(images/templatemo_menu_bg.jpg) repeat-x;
+	outline: none;
+}
+
+.indentmenu ul li a:visited{
+	color: white;
+}
+
+.indentmenu ul li a.selected, .indentmenu ul li a:hover, .indentmenu ul li a[checked]{
+	color: white !important;
+	background: black url(images/templatemo_menu_hover_bg.jpg) center center;
+}
+
+.indentmenu li .last{
+	border-right: none;
+}
+
+.content_box {
+	clear: both;
+	width: 876px;
+	padding: 40px;
+	min-height: 300px;
+	background-color: #444041;
+	border-radius: 8px;
+	border: 2px solid #fff;
+}
+
+.database_table, .settings_table{
+	width:100%;
+}
+.settings_tr td:not(:first-child){
+	text-align: center;
+}
+.database_tr td{
+	text-align: center;
+}
+.active, .grand_access:hover, .add:hover{
+	color: greenyellow;
+}
+.delete_panel_user, .grand_access, .change_pass{
+	cursor: pointer;
+}
+.delete_panel_user:hover, .active:hover, .rm:hover{
+	color: coral;
+}
+.new_pass_form, .token, .key{
+    width: 100%;
+    background: transparent;
+    border: none;
+    height: 21px;
+    text-align: center;
+    color: #FFF;
+	outline: none;
+	float: left;
+}
+.new_pass_form_btn{
+	font-size: 20px;
+    padding: 0px;
+    background: transparent;
+    border: none;
+    color: greenyellow;
+    margin-top: -2;
+	margin-bottom: -2;
+	outline: none;
+}
