@@ -6,11 +6,11 @@
 
 
     $main_menu = array(
-        array('title' => 'МОНИТОРИНГ', 'id' => 'monitoring'),
-        array('title' => 'button2', 'id' => '2'),
-        array('title' => 'ЦЕЛИ', 'id' => 'targets'), 
-        array('title' => 'ПОЛЬЗОВАТЕЛИ', 'id' => 'database'),
-        array('title' => 'НАСТРОЙКИ', 'id' => 'settings'),
+        array('title' => '*', 'id' => 'monitoring'),
+        array('title' => '*', 'id' => '2'),
+        array('title' => '*', 'id' => 'targets'), 
+        array('title' => 'СОТРУДНИКИ', 'id' => 'database'),
+        array('title' => 'РАСПИСАНИЕ', 'id' => 'settings'),
         array('title' => 'ВЫХОД', 'id' => 'exit')
     );
 

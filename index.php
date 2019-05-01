@@ -53,20 +53,6 @@ if( isset($_POST) ){
             die();
         break;
 
-        case 'open_monitor':
-            if( $auth->check_session() ){
-                $call->_on_open_monitor();
-            }
-            die();
-        break;
-
-        case 'open_targets':
-            if( $auth->check_session() ){
-                $call->_on_open_targets();
-            }
-            die();
-        break;
-
         case 'setup_param':
             $call->_on_setup_param();
             die();
@@ -79,21 +65,6 @@ if( isset($_POST) ){
 
         case 'add_param':
             $call->_on_add_param();
-            die();
-        break;
-
-        case 'rm_target':
-            $call->_on_rm_target();
-            die();
-        break;
-
-        case 'add_target':
-            $call->_on_add_target();
-            die();
-        break;
-
-        case 'toggle_target':
-            $call->_on_toggle_target();
             die();
         break;
         
