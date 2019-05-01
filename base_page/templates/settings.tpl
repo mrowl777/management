@@ -17,5 +17,5 @@
 </table>
 
 
-<script src="/onl_tracker/base_page/js/settings.js"></script>
+<script src="/staff_management/base_page/js/settings.js"></script>
 </div>

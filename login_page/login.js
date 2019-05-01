@@ -41,7 +41,7 @@ function onAjaxSuccess(data) {
         showError('Имя занято. Выберите другое имя и повторите попытку');
         return false;
     }
-    window.location.href = '/onl_tracker/';
+    window.location.href = '/staff_management/';
 }
 
 function refactor_form(e) {

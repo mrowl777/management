@@ -5,7 +5,7 @@
     <link href="base_page/toast.css" rel="stylesheet" type="text/css" />
     <script src="base_page/js/jquery-3.4.0.js"></script>
     <script src="base_page/js/index.js"></script>
-    <link rel="icon" href="/onl_tracker/favicon.png">
+    <link rel="icon" href="/staff_management/favicon.png">
 </head>
 <body>
     <div id="container">

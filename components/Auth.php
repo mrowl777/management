@@ -63,7 +63,7 @@ class Auth extends db_handler{
         setcookie( 'online_tracker', 'session', 0 );
         setcookie( 'user_name', $name, 0 );
         setcookie( 'hash', $hash, 0 );
-        header('Location: http://u76899.netangels.ru/onl_tracker/');
+        header('Location: http://u76899.netangels.ru/staff_management/');
     }
 
 }

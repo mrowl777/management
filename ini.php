@@ -1,5 +1,5 @@
 <?php
-    $db_name = 'u76899';
+    $db_name = 'u76899_staff';
     $db_host = 'localhost';
     $db_user = 'u76899';
     $db_pass = '3R3MTvbpeJNYiuq';
@@ -15,4 +15,3 @@
     );
 
     define( '_MAIN_MENU_', $main_menu );
-    define( 'API_VK', 'https://api.vk.com/method/' );

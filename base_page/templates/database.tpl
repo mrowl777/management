@@ -26,5 +26,5 @@
 {%}
 </table>
 
-<script src="/onl_tracker/base_page/js/database.js"></script>
+<script src="/staff_management/base_page/js/database.js"></script>
 </div>

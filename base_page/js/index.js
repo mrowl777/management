@@ -39,7 +39,7 @@ function load_module(data) {
 }
 
 function onAjaxSuccess() {
-    window.location.href = '/onl_tracker/';
+    window.location.href = '/staff_management/';
 }
 
 document.addEventListener('DOMContentLoaded', function () {
