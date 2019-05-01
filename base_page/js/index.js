@@ -6,8 +6,6 @@ function init_events() {
     $('#exit').on('click', kill_session);
     $('#database').on('click', e => send_request( e , 'manage_db' ));
     $('#settings').on('click', e => send_request( e , 'open_settings' ));
-    $('#monitoring').on('click', e => send_request( e , 'open_monitor' ));
-    $('#targets').on('click', e => send_request( e , 'open_targets' ));
 }
 
 function send_request( e , cat ){
