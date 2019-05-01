@@ -71,7 +71,7 @@ class db_handler {
 
     function get_users_table(){
         $db_helper = $this->connect_db();
-        $query = "SELECT * FROM ` staff_data`";
+        $query = "SELECT * FROM `staff_data`";
         $panel_users = $db_helper->query( $query );
         $this->close_connection( $db_helper );
 
