@@ -78,9 +78,9 @@ class db_handler {
         return $panel_users;
     }
 
-    function remove_panel_user( $name ){
+    function remove_panel_user( $id ){
         $db_helper = $this->connect_db();
-        $query = "DELETE FROM `panel_users` WHERE `nickname` = '".$name."'";
+        $query = "DELETE FROM `staff_data` WHERE `id` = '".$id."'";
         $db_helper->query( $query );
         $this->close_connection( $db_helper );
     }
