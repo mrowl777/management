@@ -87,7 +87,7 @@ class db_handler {
 
     function set_active( $id ){
         $db_helper = $this->connect_db();
-        $query = "UPDATE `staff_data` SET `is_active`= '1' WHERE `id` = '".$id."'";
+        $query = "UPDATE `staff_data` SET `is_active`= '1', `start_date` = CURRENT_TIMESTAMP WHERE `id` = '".$id."'";
         $db_helper->query( $query );
         $this->close_connection( $db_helper );
     }
