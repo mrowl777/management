@@ -5,7 +5,7 @@
 <td><input type='text' class='new_pass_form name' placeholder='введите имя '></input></td>
 <td><input type='text' class='new_pass_form surname' placeholder='введите отчество '></input></td>
 <td><input type='text' class='new_pass_form last_name' placeholder='введите фамилию '></input></td>
-<td><select>
+<td><select id="usr_time">
 <option disabled>Выберите время работы</option>
 {%*times*}
   <option value="{*times:^KEY*}">{*times:*}</option>

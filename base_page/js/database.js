@@ -41,7 +41,7 @@ function add_staff(e) {
     var name = $('.name').val();
     var _surname = $('.surname').val();
     var _last_name = $('.last_name').val();
-    var _time = $('.time').val();
+    var _time = $( "#usr_time option:selected" ).val();
         $.post(
             "index.php",
             {
