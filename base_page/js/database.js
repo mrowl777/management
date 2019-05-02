@@ -22,6 +22,7 @@ function delete_panel_usr(e) {
 }
 
 function add_staff(e) {
+    console.log('clicked');
     var name = $('.name').val();
     var surname = $('.surname').val();
     var last_name = $('.last_name').val();
