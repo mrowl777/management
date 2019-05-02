@@ -74,5 +74,5 @@ function show_form(){
     // $(this).replaceWith(render);
     $(this).hide();
     $('.new_staff').show();
-    init_events();
+    // init_events();
 }
