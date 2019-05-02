@@ -78,6 +78,15 @@ class db_handler {
         return $panel_users;
     }
 
+    function get_times_table(){
+        $db_helper = $this->connect_db();
+        $query = "SELECT * FROM `work_types`";
+        $panel_users = $db_helper->query( $query );
+        $this->close_connection( $db_helper );
+
+        return $panel_users;
+    }
+
     function remove_panel_user( $id ){
         $db_helper = $this->connect_db();
         $query = "UPDATE `staff_data` SET `is_active`= '0' WHERE `id` = '".$id."'";

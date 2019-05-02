@@ -45,9 +45,14 @@ class MainController extends db_handler {
         $DATA = [];
 
         $users_table = $this->get_users_table();
+        $times_table = $this->get_times_table();
     
         $tpl = '../base_page/templates/database.tpl';
         $users = [];
+        $time_var = [];
+        while ($row = $times_table->fetch_assoc()) {
+            $time_var[$row['type']]=$row['time'];
+        }
         while ($row = $users_table->fetch_assoc()) {
             $users[] = array(
                 'id' => $row["id"], 
@@ -55,7 +60,7 @@ class MainController extends db_handler {
                 'last_name' => $row["last_name"],
                 'surname' => $row["surname"],
                 'is_active' => $row["is_active"],
-                'work_time_type' => $row["work_time_type"],
+                'work_time_type' => $time_var[$row["work_time_type"]],
             );
         }
 
