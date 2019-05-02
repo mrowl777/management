@@ -1,7 +1,8 @@
 <div class="content_box">
+<button class="add_staff">Добавить сотрудника </button>
 <table border="1" class="database_table">
 <tr>
-<th>имя</th>
+<th>ИМЯ</th>
 <th>ФАМИЛИЯ</th>
 <th>ОТЧЕСТВО</th>
 <th>РАБОЧЕЕ ВРЕМЯ</th>

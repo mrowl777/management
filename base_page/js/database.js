@@ -2,6 +2,7 @@ init_events();
 
 function init_events() {
     $('.delete_panel_user').on('click', delete_panel_usr);
+    $('.add_staff').on('click', show_form);
 }
 
 function delete_panel_usr(e) {
@@ -24,11 +25,13 @@ function on_base_answer(data) {
 }
 
 function show_form(){
-    var input = "<input type='text' class='new_pass_form' placeholder='введите новый пароль'></input>";
-
-    $( this ).parent().find('.pass').text('');
-    $( this ).parent().find('.pass').append( input );
-    $( this ).find('i').removeClass('icon-change');
-    $( this ).find('i').addClass('icon-ok');
-    $( this ).find('i').on('click', change_usr_pass );
+    var r_part_1 = '<tr class="database_tr" id="new">';
+    var r_part_2 = "<td><input type='text' class='new_pass_form' placeholder='введите имя '></input></td>";
+    var r_part_3 = "<td><input type='text' class='new_pass_form' placeholder='введите отчество '></input></td>";
+    var r_part_4 = "<td><input type='text' class='new_pass_form' placeholder='введите фамилию '></input></td>";
+    var r_part_6 = '<td title="Добавить" class="delete_panel_user"><i class="icon-ok icon-large"></i></td>';
+    var r_part_5 = '<td><td>';
+    var r_part_7 = '</tr> ';
+    var render = r_part_1 +r_part_2+r_part_3+r_part_4+r_part_5+r_part_6+r_part_7;
+    $(this).replaceWith(render);
 }
