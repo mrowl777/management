@@ -5,8 +5,8 @@
 <td><input type='text' class='new_pass_form name' placeholder='введите имя '></input></td>
 <td><input type='text' class='new_pass_form surname' placeholder='введите отчество '></input></td>
 <td><input type='text' class='new_pass_form last_name' placeholder='введите фамилию '></input></td>
-<td><i class="icon-ok icon-large load"></i></td>
 <td><input type='text' class='new_pass_form  time' placeholder='время работы'></input><td>
+<td colspan="2"><i class="icon-ok icon-large load"></i></td>
 </tr> 
 </table>
 <table border="1" class="database_table">
