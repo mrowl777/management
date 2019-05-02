@@ -45,7 +45,7 @@ function on_base_answer(data) {
 }
 
 function show_form(){
-    var r_part_0 = '<table border="1" class="database_table">';
+    var r_part_0 = '<table border="1" style="margin-bottom: 20px;" class="database_table">';
     var r_part_1 = '<tr class="database_tr" id="new">';
     var r_part_2 = "<td><input type='text' class='new_pass_form name' placeholder='введите имя '></input></td>";
     var r_part_3 = "<td><input type='text' class='new_pass_form surname' placeholder='введите отчество '></input></td>";
