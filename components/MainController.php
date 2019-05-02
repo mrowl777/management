@@ -65,6 +65,7 @@ class MainController extends db_handler {
         }
 
         $DATA['staffs'] = $users;
+        $DATA['times'] = $time_var;
 
         $html = websun_parse_template_path($DATA, $tpl); 
 

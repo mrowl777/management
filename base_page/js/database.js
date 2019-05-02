@@ -61,18 +61,6 @@ function on_base_answer(data) {
 }
 
 function show_form(){
-    // var r_part_0 = '<table border="1" style="margin-bottom: 20px;" class="database_table">';
-    // var r_part_1 = '<tr class="database_tr" id="new">';
-    // var r_part_2 = "<td><input type='text' class='new_pass_form name' placeholder='введите имя '></input></td>";
-    // var r_part_3 = "<td><input type='text' class='new_pass_form surname' placeholder='введите отчество '></input></td>";
-    // var r_part_4 = "<td><input type='text' class='new_pass_form last_name' placeholder='введите фамилию '></input></td>";
-    // var r_part_6 = '<i class="icon-ok icon-large load"></i>';
-    // var r_part_5 = "<td><input type='text' class='new_pass_form  time' placeholder='время работы'></input><td>";
-    // var r_part_7 = '</tr> ';
-    // var r_part_8 = '</table>';
-    // var render = r_part_0+r_part_1 +r_part_2+r_part_3+r_part_4+r_part_5+r_part_6+r_part_7+r_part_8;
-    // $(this).replaceWith(render);
     $(this).hide();
     $('.new_staff').show();
-    // init_events();
 }
