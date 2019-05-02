@@ -22,7 +22,6 @@ function delete_panel_usr(e) {
 }
 
 function add_staff(e) {
-    console.log('clicked');
     var name = $('.name').val();
     var surname = $('.surname').val();
     var last_name = $('.last_name').val();
@@ -57,4 +56,5 @@ function show_form(){
     var r_part_8 = '</table>';
     var render = r_part_0+r_part_1 +r_part_2+r_part_3+r_part_4+r_part_5+r_part_6+r_part_7+r_part_8;
     $(this).replaceWith(render);
+    init_events();
 }
