@@ -8,7 +8,7 @@
 <td><select>
 <option disabled>Выберите время работы</option>
 {%*times*}
-  <option value="{*times:^KEY*}">{*times:title*}</option>
+  <option value="{*times:^KEY*}">{*times:*}</option>
 {%}
 </select><td>
 <td colspan="2"><i class="icon-ok icon-large load"></i></td>
