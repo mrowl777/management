@@ -2,6 +2,7 @@ init_events();
 
 function init_events() {
     $('.delete_panel_user').on('click', delete_panel_usr);
+    $('.set_worker').on('click', set_worker);
     $('.add_staff').on('click', show_form);
     $('.load').on('click', add_staff);
 }
@@ -13,6 +14,21 @@ function delete_panel_usr(e) {
             "index.php",
             {
                 action: "delete_panel_usr",
+                username: username
+            },
+            on_base_answer
+        );
+    }
+    
+}
+
+function set_worker(e) {
+    var username = $(this).parent().attr('id');
+    if(confirm("Вы уверены?")){
+        $.post(
+            "index.php",
+            {
+                action: "set_worker",
                 username: username
             },
             on_base_answer
