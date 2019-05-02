@@ -263,6 +263,7 @@
   .icon-check-circle:before         { content: "\f00c"; }
   .icon-times:before                { content: "\f00d"; }
   .icon-remove-user:before                { content: "\f235"; }
+  .fa-user-plus:before                { content: "\f234"; }
   .icon-crown-user:before                { content: "\f084"; }
   .icon-change:before                { content: "\f021"; }
   .icon-ok:before                { content: "\f14a"; }

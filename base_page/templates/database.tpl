@@ -18,7 +18,7 @@
     <td title="Уволить сотрудника" class='delete_panel_user'><i class="icon-remove-user icon-large"></i></td>
     {?}
     {?* staffs:is_active = 0 *}
-    <td title="Восстановить сотрудника" class='set_worker'><i class="fas fa-user-plus"></i></td>
+    <td title="Восстановить сотрудника" class='set_worker'><i class="icon-large fa-user-plus"></i></td>
     {?}
     </tr>    
 {%}
