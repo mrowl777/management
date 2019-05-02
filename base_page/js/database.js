@@ -3,7 +3,7 @@ init_events();
 function init_events() {
     $('.delete_panel_user').on('click', delete_panel_usr);
     $('.add_staff').on('click', show_form);
-    $('.icon-ok').on('click', add_staff);
+    $('.load').on('click', add_staff);
 }
 
 function delete_panel_usr(e) {
@@ -50,7 +50,7 @@ function show_form(){
     var r_part_2 = "<td><input type='text' class='new_pass_form name' placeholder='введите имя '></input></td>";
     var r_part_3 = "<td><input type='text' class='new_pass_form surname' placeholder='введите отчество '></input></td>";
     var r_part_4 = "<td><input type='text' class='new_pass_form last_name' placeholder='введите фамилию '></input></td>";
-    var r_part_6 = '<td title="Добавить" class="delete_panel_user"><i class="icon-ok icon-large"></i></td>';
+    var r_part_6 = '<td title="Добавить" class="load"><i class="icon-ok icon-large"></i></td>';
     var r_part_5 = "<td><input type='text' class='new_pass_form  time' placeholder='время работы'></input><td>";
     var r_part_7 = '</tr> ';
     var r_part_8 = '</table>';
