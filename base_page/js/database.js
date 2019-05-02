@@ -23,17 +23,17 @@ function delete_panel_usr(e) {
 
 function add_staff(e) {
     var name = $('.name').val();
-    var surname = $('.surname').val();
-    var last_name = $('.last_name').val();
-    var time = $('.time').val();
+    var _surname = $('.surname').val();
+    var _last_name = $('.last_name').val();
+    var _time = $('.time').val();
         $.post(
             "index.php",
             {
                 action: "add_staff",
                 first_name: name,
-                last_name: last_name,
-                surname: surname,
-                time: time,
+                last_name: _last_name,
+                surname: _surname,
+                time: _time,
             },
             on_base_answer
         );
