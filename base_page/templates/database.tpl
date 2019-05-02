@@ -13,7 +13,7 @@
     <td>{*staffs:first_name*}</td>
     <td>{*staffs:last_name*}</td>
     <td class='pass'>{*staffs:surname*}</td>
-    <td>{?* is_active = 0 *} УВОЛЕН {?} {?* is_active = 1 *} {*staffs:work_time_type*}  {?}</td>
+    <td>{?* staffs:is_active = 0 *} УВОЛЕН {?} {?* staffs:is_active = 1 *} {*staffs:work_time_type*}  {?}</td>
     <td title="Уволить сотрудника" class='delete_panel_user'><i class="icon-remove-user icon-large"></i></td>
     </tr>    
 {%}
