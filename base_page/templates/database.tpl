@@ -1,5 +1,14 @@
 <div class="content_box">
 <button class="add_staff">Добавить сотрудника </button>
+<table border="1" style="margin-bottom: 20px; display:none;" class="database_table new_staff">
+<tr class="database_tr" id="new">
+<td><input type='text' class='new_pass_form name' placeholder='введите имя '></input></td>
+<td><input type='text' class='new_pass_form surname' placeholder='введите отчество '></input></td>
+<td><input type='text' class='new_pass_form last_name' placeholder='введите фамилию '></input></td>
+<i class="icon-ok icon-large load"></i>
+<td><input type='text' class='new_pass_form  time' placeholder='время работы'></input><td>
+</tr> 
+</table>
 <table border="1" class="database_table">
 <tr>
 <th>ИМЯ</th>
