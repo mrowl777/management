@@ -85,6 +85,13 @@ class db_handler {
         $this->close_connection( $db_helper );
     }
 
+    function add_staff( $first_name, $last_name, $surname, $time = '' ){
+        $db_helper = $this->connect_db();
+        $query = "INSERT INTO `staff_data`(`id`, `first_name`, `last_name`, `surname`, `is_active`, `start_date`, `work_time_type`) VALUES ('','" . $first_name . "','" . $last_name . "','', '".$surname."' , '1', CURRENT_TIMESTAMP, '".$time."')";
+        $result = $db_helper->query( $query );
+        $this->close_connection( $db_helper );
+    }
+
     function toggle_user_rights( $name ){
         $db_helper = $this->connect_db();
         $query = "SELECT is_admin FROM `panel_users` WHERE `nickname` = '".$name."'";

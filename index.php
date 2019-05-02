@@ -36,6 +36,11 @@ if( isset($_POST) ){
             die();
         break;
 
+        case 'add_staff':
+            $call->_on_add_staff();
+            die();
+        break;
+
         case 'toggle_rights_usr':
             $call->_on_toggle_rights_usr();
             die();
