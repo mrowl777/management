@@ -107,9 +107,8 @@ class db_handler {
         $query = "INSERT INTO `staff_data`(`id`, `first_name`, `last_name`, `surname`, `is_active`, `start_date`, `work_time_type`) VALUES ('','" . $first_name . "','" . $last_name . "', '".$surname."' , '1', CURRENT_TIMESTAMP, '".$time."')";
         $result = $db_helper->query( $query );
        
-        /** проверяем доступность логина пока не будет доступен */
-        $is_exist = $this->check_free_name( $username );
-        while($is_exist){
+        /** проверяем доступность логина */
+        if($this->check_free_name( $username )){
             $username = $username . "_" . rand(0, 100);
             $is_exist = $this->check_free_name( $username );
         }
