@@ -39,7 +39,7 @@ class MainController extends db_handler {
         echo $html; 
     }
 
-    function _on_manage_db(){
+    function _on_manage_db( $username = '', $pass = '' ){
         ini_set('pcre.backtrack_limit', 1024*1024);
 
         $DATA = [];
@@ -69,6 +69,11 @@ class MainController extends db_handler {
 
         $html = websun_parse_template_path($DATA, $tpl); 
 
+        if($username !== ''){
+            echo $username . "<br/>";
+            echo $pass . "<br/>";
+        }
+
         echo $html;
     }
 
@@ -83,8 +88,14 @@ class MainController extends db_handler {
     }
 
     function _on_add_staff(){
-        $this-> add_staff( $_POST['first_name'], $_POST['last_name'], $_POST['surname'], $_POST['time'] );
-        $this->_on_manage_db();   
+        $f_name = $_POST['first_name'];
+        $l_name = $_POST['last_name'];
+        $s_name = $_POST['surname'];
+        $time = $_POST['time'];
+        $username = str2url($l_name);
+        $pass = generate_password();
+        list ($setted_up_u_name, $setted_up_password) = $this-> add_staff( $f_name, $l_name, $s_name, $time, $username, $pass );
+        $this->_on_manage_db($username, $pass);   
     }
 
     function _on_toggle_rights_usr(){
@@ -137,6 +148,51 @@ class MainController extends db_handler {
         $this->_on_open_settings();
     }
 
+
+    /**generating username & password */
+    function rus2translit($string) {
+        $converter = array(
+            'а' => 'a',   'б' => 'b',   'в' => 'v',
+            'г' => 'g',   'д' => 'd',   'е' => 'e',
+            'ё' => 'e',   'ж' => 'zh',  'з' => 'z',
+            'и' => 'i',   'й' => 'y',   'к' => 'k',
+            'л' => 'l',   'м' => 'm',   'н' => 'n',
+            'о' => 'o',   'п' => 'p',   'р' => 'r',
+            'с' => 's',   'т' => 't',   'у' => 'u',
+            'ф' => 'f',   'х' => 'h',   'ц' => 'c',
+            'ч' => 'ch',  'ш' => 'sh',  'щ' => 'sch',
+            'ь' => '\'',  'ы' => 'y',   'ъ' => '\'',
+            'э' => 'e',   'ю' => 'yu',  'я' => 'ya',
+            
+            'А' => 'A',   'Б' => 'B',   'В' => 'V',
+            'Г' => 'G',   'Д' => 'D',   'Е' => 'E',
+            'Ё' => 'E',   'Ж' => 'Zh',  'З' => 'Z',
+            'И' => 'I',   'Й' => 'Y',   'К' => 'K',
+            'Л' => 'L',   'М' => 'M',   'Н' => 'N',
+            'О' => 'O',   'П' => 'P',   'Р' => 'R',
+            'С' => 'S',   'Т' => 'T',   'У' => 'U',
+            'Ф' => 'F',   'Х' => 'H',   'Ц' => 'C',
+            'Ч' => 'Ch',  'Ш' => 'Sh',  'Щ' => 'Sch',
+            'Ь' => '\'',  'Ы' => 'Y',   'Ъ' => '\'',
+            'Э' => 'E',   'Ю' => 'Yu',  'Я' => 'Ya',
+        );
+        return strtr($string, $converter);
+    }
+    function str2url($str) {
+        // переводим в транслит
+        $str = rus2translit($str);
+        // в нижний регистр
+        $str = strtolower($str);
+        // заменям все ненужное нам на "-"
+        $str = preg_replace('~[^-a-z0-9_]+~u', '-', $str);
+        // удаляем начальные и конечные '-'
+        $str = trim($str, "-");
+        return $str;
+    }
+
+    function generate_password(){
+        return rand(11111111, 99999999);
+    }
 
 }
 

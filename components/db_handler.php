@@ -101,11 +101,26 @@ class db_handler {
         $this->close_connection( $db_helper );
     }
 
-    function add_staff( $first_name, $last_name, $surname, $time = '' ){
+    function add_staff( $first_name, $last_name, $surname, $time = '', $username, $pass ){
         $db_helper = $this->connect_db();
+        /** заполняем данные сотрудника */
         $query = "INSERT INTO `staff_data`(`id`, `first_name`, `last_name`, `surname`, `is_active`, `start_date`, `work_time_type`) VALUES ('','" . $first_name . "','" . $last_name . "', '".$surname."' , '1', CURRENT_TIMESTAMP, '".$time."')";
         $result = $db_helper->query( $query );
+       
+        /** проверяем доступность логина пока не будет доступен */
+        $is_exist = $this->check_free_name( $username );
+        while($is_exist){
+            $username = $username . "_" . rand(0, 100);
+            $is_exist = $this->check_free_name( $username );
+        }
+        /**генерим пароль */
+        $pass = md5(md5($pass)); 
+         /**заводим ему учетку  */
+        $query = "INSERT INTO `panel_users`(`id`, `nickname`, `password`, `hash`, `is_admin`, `reg_date`) VALUES ( '','".$username."','".$pass."','','0', CURRENT_TIMESTAMP )";
+        $result = $db_helper->query( $query );
         $this->close_connection( $db_helper );
+        /** возвращаем логин и пароль сотрудника   */
+        return array( $username, $pass);
     }
 
     function toggle_user_rights( $name ){
