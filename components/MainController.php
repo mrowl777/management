@@ -69,10 +69,10 @@ class MainController extends db_handler {
 
         $html = websun_parse_template_path($DATA, $tpl); 
 
-        if($username !== ''){
-            echo $username . "<br/>";
-            echo $pass . "<br/>";
-        }
+        // if($username !== ''){
+        //     echo $username . "<br/>";
+        //     echo $pass . "<br/>";
+        // }
 
         echo $html;
     }
