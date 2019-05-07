@@ -108,7 +108,7 @@ class db_handler {
         $result = $db_helper->query( $query );
        
         /** проверяем доступность логина */
-        if($this->check_free_name( $username )){
+        if(!$this->check_free_name( $username )){
             $username = $username . "_" . rand(0, 100);
             $is_exist = $this->check_free_name( $username );
         }
