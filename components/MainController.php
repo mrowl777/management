@@ -180,7 +180,7 @@ class MainController extends db_handler {
     }
     function str2url($str) {
         // переводим в транслит
-        $str = rus2translit($str);
+        $str = $this->rus2translit($str);
         // в нижний регистр
         $str = strtolower($str);
         // заменям все ненужное нам на "-"
