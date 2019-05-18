@@ -142,7 +142,7 @@ class MainController extends db_handler {
             }
         }
 
-        $n_dates = []
+        $n_dates = [];
 
         foreach( $dates as $each ){
             $n_dates[] =  date( 'd-m-Y', $each );
