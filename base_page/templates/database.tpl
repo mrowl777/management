@@ -1,5 +1,5 @@
 <div class="content_box">
-<button class="add_staff">Добавить сотрудника </button>
+{%!*new_user*}<button class="add_staff">Добавить сотрудника </button>{%}
 
 {%*new_user*}
  <div> Сотрудник создан! Передайте данные: </div>
