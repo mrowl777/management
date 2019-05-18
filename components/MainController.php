@@ -117,7 +117,7 @@ class MainController extends db_handler {
         $counter = 0;
         $length = 0;
 
-        echo( var_dump($dates)) . "<br/>";
+        
 
         foreach( $dates as $k => $date ){
             if( $date <= $cur_time ){
@@ -127,6 +127,8 @@ class MainController extends db_handler {
             }
             $length++;
         }
+
+        echo( var_dump($length)) . "<br/>";
 
         for($i=0;$i<$counter;$i++){
             $dates[] = (end($dates) + 48*60*60);
