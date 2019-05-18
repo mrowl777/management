@@ -33,7 +33,7 @@ function change_pass(e) {
 }
 
 function save_pass_btn(e) {
-    var _pass = $('input[name=new_pass]');
+    var _pass = $('input[name=new_pass]').val();
     if(confirm("Вы  записали пароль?")){
         $.post(
             "index.php",
