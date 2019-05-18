@@ -172,6 +172,13 @@ class db_handler {
         return false;
     }
 
+    function put_timeline($uid, $times){
+        $db_helper = $this->connect_db();
+        $query = "INSERT INTO `timetable`(`id`, `uid`, `dates`) VALUES ('','".$uid."','".$times."')";
+        $db_helper->query( $query );
+        $this->close_connection( $db_helper );
+    }
+
     function update_timetable( $uid, $times ){
         $db_helper = $this->connect_db();
         $query = "UPDATE `timetable` SET `dates`='".$times."' WHERE `uid` = '".$uid."'";

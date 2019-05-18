@@ -127,7 +127,7 @@ class MainController extends db_handler {
             $dates[] = (end($dates) + 48*60*60);
         }
 
-        $str = implode(":", $dates)
+        $str = implode(":", $dates);
 
         return $str;
     }
@@ -168,10 +168,8 @@ class MainController extends db_handler {
             for( $i = 0; $i < 31; $i++ ){
                 $start_date .= ":" . ( $start_date  + 48*60*60 );
             }
-            $staffs_list[$k]['dates'] = $start_date;
+            $this->put_timeline($staffs_list['id'], $start_date);
         }
-
-        die(var_dump($staffs_list));
     }
     
 
