@@ -112,7 +112,6 @@ class MainController extends db_handler {
     }
 
     function dates_builder( $dates ){
-        echo(var_dump($dates));
         $dates = explode( ":", $dates );
         $cur_time = time();
         $counter = 0;
@@ -126,6 +125,7 @@ class MainController extends db_handler {
             }
             $length++;
         }
+        echo(var_dump($length));
 
         for($i=0;$i<$counter;$i++){
             $dates[] = (end($dates) + 48*60*60);
