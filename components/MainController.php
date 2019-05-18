@@ -65,8 +65,7 @@ class MainController extends db_handler {
         }
 
         if( !empty($username) && $username != '' ){
-            die($username);
-            $DATA['new_user'] = [
+            $DATA['new_user'][] = [
                 'login' => $username,
                 'password' => $pass
             ];
