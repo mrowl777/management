@@ -111,6 +111,14 @@ img {
 	outline: none;
 	float: left;
 }
+.spass{
+	font-size: 20px;
+}
+.new_pass{
+	background: transparent;
+    border: solid 1px #fff;
+    padding: 2px;
+}
 .new_pass_form_btn{
 	font-size: 20px;
     padding: 0px;

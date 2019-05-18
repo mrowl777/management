@@ -26,8 +26,8 @@ function delete_panel_usr(e) {
 
 function change_pass(e) {
     var btn = $(this);
-    var input = '<input name="new_pass" class="key" placeholder="Введите новый пароль"> </input>';
-    var save_btn = '<i name="save_pass_btn" class="icon-ok icon-large"></i>';
+    var input = '<input name="new_pass" class="new_pass" placeholder="Введите новый пароль"> </input>';
+    var save_btn = '<i name="save_pass_btn" class="icon-ok icon-large spass"></i>';
     btn.replaceWith( input + save_btn);
     init_events();
 }
