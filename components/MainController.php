@@ -140,10 +140,11 @@ class MainController extends db_handler {
             for($i=0;$i<$iterations;$i++){
                 $dates[] = (end($dates) + 48 * 60 * 60);
             }
-            echo( var_dump($dates) ) . "<br/>";
         }
 
         $str = implode(":", $dates);
+
+        echo( $str ) . "<br/>";
 
         return $str;
     }
