@@ -149,19 +149,11 @@ class MainController extends db_handler {
         $staffs_list = [];
         $staffs = $this->get_staffs();
         $tt = $this->get_timetable();
-        $timetable = [];
 
         if( $tt ){
-
             while ($row = $tt->fetch_assoc()) {
-                $timetable[] = array(
-                    'uid' => $row["id"], 
-                    'dates' => $this->dates_builder($row["dates"])
-                );
-            }
-
-            foreach( $timetable as $line ){
-                $this->update_timetable( $line['uid'], $line['dates'] );
+                $dates = $this->dates_builder($row["dates"]);
+                $this->update_timetable( $row["id"], $dates );
             }
 
             return;
