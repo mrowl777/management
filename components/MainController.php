@@ -111,10 +111,39 @@ class MainController extends db_handler {
         $this->_on_open_settings();
     }
 
+    function build_timetable(){
+        $staffs_list = [];
+        $staffs = $this->get_staffs();
+        while ($row = $users_table->fetch_assoc()) {
+            if( $row["is_active"] == '1' ){
+                $staffs_list[] = array(
+                    'id' => $row["id"], 
+                    'start_date' => $row["start_date"], 
+                    'work_time_type' => $row["work_time_type"], 
+                );
+            }
+        }
+
+        die(var_dump($staffs_list));
+
+        foreach( $staffs_list as $k => $staff ){
+
+        }
+        $cur_date = time(); 
+        // echo($timestamp); 
+        // echo "\n"; 
+        // echo(date("F d, Y h:i:s A", $timestamp)); 
+
+    }
     
 
     function _on_open_settings(){
         ini_set('pcre.backtrack_limit', 1024*1024);
+
+
+        $this->build_timetable();
+
+
 
         $DATA = [];
 

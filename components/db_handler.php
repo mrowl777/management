@@ -78,6 +78,15 @@ class db_handler {
         return $panel_users;
     }
 
+    function get_staffs(){
+        $db_helper = $this->connect_db();
+        $query = "SELECT `id`, `is_active`, `start_date`, `work_time_type` FROM `staff_data` WHERE 1";
+        $panel_users = $db_helper->query( $query );
+        $this->close_connection( $db_helper );
+
+        return $panel_users;
+    }
+
     function get_times_table(){
         $db_helper = $this->connect_db();
         $query = "SELECT * FROM `work_types`";
