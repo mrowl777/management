@@ -229,8 +229,7 @@ class MainController extends db_handler {
 
         while ($row = $time_table->fetch_assoc()) {
             $_date = date('d.m.Y', $cur_timestamp);
-            $_staff = $this->build_staff( $_date, $staff_list );
-            $timetable[] = $_staff;
+            $timetable[] = $this->build_staff( $_date, $staff_list );
             $cur_timestamp = $cur_timestamp + (24 * 60 * 60);
         }
 
