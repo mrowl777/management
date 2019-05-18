@@ -6,9 +6,6 @@
 
 
     $main_menu = array(
-        array('title' => '*', 'id' => 'monitoring'),
-        array('title' => '*', 'id' => '2'),
-        array('title' => '*', 'id' => 'targets'), 
         array('title' => 'СОТРУДНИКИ', 'id' => 'database'),
         array('title' => 'РАСПИСАНИЕ', 'id' => 'settings'),
         array('title' => 'ВЫХОД', 'id' => 'exit')
