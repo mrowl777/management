@@ -139,7 +139,7 @@ class MainController extends db_handler {
         }
 
         for($i=0;$i<$counter;$i++){
-            $dates[] = (end($dates) + 48 * 60 * 60);
+            $dates[] = (end($dates) + 49 * 60 * 60);
             $length++;
         }
 
@@ -148,7 +148,7 @@ class MainController extends db_handler {
             $iterations = 30 - $length;
 
             for($i=0;$i<$iterations;$i++){
-                $dates[] = (end($dates) + 48 * 60 * 60);
+                $dates[] = (end($dates) + 49 * 60 * 60);
             }
         }
 
@@ -187,8 +187,8 @@ class MainController extends db_handler {
             $start_date = $staff['start_date'];
             $dates = [];
             for( $i = 0; $i < 30; $i++ ){
-                $dates[] = ( $start_date  + 48*60*60 );
-                $start_date = $start_date + 48*60*60;
+                $dates[] = ( $start_date  + 49*60*60 );
+                $start_date = $start_date + 49*60*60;
             }
             $normal_dates = $this->build_normal_dates( $dates );
             $result_str = implode(":", $dates);
