@@ -118,17 +118,17 @@ class MainController extends db_handler {
 
         $DATA = [];
 
-        $settings = [];
-        $settings_table = $this->get_settings();
+        $timetable = [];
+        $time_table = $this->get_timetable();
 
-        while ($row = $settings_table->fetch_assoc()) {
-            $settings[] = array(
+        while ($row = $time_table->fetch_assoc()) {
+            $timetable[] = array(
                 'key' => $row["key"], 
                 'value' => $row["value"]
             );
         }
 
-        $DATA['settings'] = $settings;
+        $DATA['settings'] = $timetable;
 
         $tpl = '../base_page/templates/settings.tpl';
 

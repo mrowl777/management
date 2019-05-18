@@ -147,13 +147,13 @@ class db_handler {
         $this->close_connection( $db_helper );
     }
 
-    function get_settings(){
+    function get_timetable(){
         $db_helper = $this->connect_db();
-        $query = "SELECT * FROM `settings`";
-        $settings = $db_helper->query( $query );
+        $query = "SELECT * FROM `timetable`";
+        $timetable = $db_helper->query( $query );
         $this->close_connection( $db_helper );
 
-        return $settings;
+        return $timetable;
     }
 
     function remove_setting_param( $key ){
