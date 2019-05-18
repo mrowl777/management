@@ -114,19 +114,26 @@ class MainController extends db_handler {
     function build_timetable(){
         $staffs_list = [];
         $staffs = $this->get_staffs();
-        while ($row = $staffs->fetch_assoc()) {
-            if( $row["is_active"] == '1' ){
+        $tt = $this->get_timetable();
+
+        if( $tt && !empty($tt) ){
+            die('ok');
+            while ($row = $tt->fetch_assoc()) {
                 $staffs_list[] = array(
                     'id' => $row["id"], 
-                    'start_date' => strtotime( $row["start_date"] ), 
-                    'work_time_type' => $row["work_time_type"], 
+                    'dates' => explode( ":", $row["dates"] )
                 );
             }
         }
 
-        /**в массиве сейчас метка даты начала работ**/
-
-
+        while ($row = $staffs->fetch_assoc()) {
+            if( $row["is_active"] == '1' ){
+                $staffs_list[] = array(
+                    'id' => $row["id"], 
+                    'start_date' => strtotime( $row["start_date"] )
+                );
+            }
+        }
 
         foreach( $staffs_list as $k => $staff ){
             $start_date = $staff['start_date'];
@@ -137,12 +144,6 @@ class MainController extends db_handler {
         }
 
         die(var_dump($staffs_list));
-
-        $cur_date = time(); 
-        // echo($timestamp); 
-        // echo "\n"; 
-        // echo(date("F d, Y h:i:s A", $timestamp)); 
-
     }
     
 

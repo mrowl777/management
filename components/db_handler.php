@@ -80,11 +80,20 @@ class db_handler {
 
     function get_staffs(){
         $db_helper = $this->connect_db();
-        $query = "SELECT `id`, `is_active`, `start_date`, `work_time_type` FROM `staff_data` WHERE 1";
-        $panel_users = $db_helper->query( $query );
+        $query = "SELECT `id`, `is_active`, `start_date` FROM `staff_data` WHERE 1";
+        $staff_data = $db_helper->query( $query );
         $this->close_connection( $db_helper );
 
-        return $panel_users;
+        return $staff_data;
+    }
+
+    function get_timetable(){
+        $db_helper = $this->connect_db();
+        $query = "SELECT * FROM `timetable` WHERE 1";
+        $timetable = $db_helper->query( $query );
+        $this->close_connection( $db_helper );
+
+        return $timetable;
     }
 
     function get_times_table(){
