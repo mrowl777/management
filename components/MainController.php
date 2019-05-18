@@ -134,7 +134,7 @@ class MainController extends db_handler {
         }
 
         if($length < 30){
-            die( var_dump($length)) . "<br/>";
+            echo( var_dump($length)) . "<br/>";
             $iterations = 30 - $length;
             
             for($i=0;$i<$iterations;$i++){
