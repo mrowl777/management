@@ -218,10 +218,20 @@ class MainController extends db_handler {
             );
         }
 
-
         while ($row = $graphics->fetch_assoc()) {
             $time_var[$row['type']]=$row['time'];
         }
+
+        $dates_list = [];
+
+        $cur_timestamp = time();
+
+        for($i=0;$i<30;$i++){
+            $dates_list[] = date('d.m.Y', $cur_timestamp);
+            $cur_timestamp = $cur_timestamp + (24 * 60 * 60);
+        }
+
+        $DATA['dates_list'] = $dates_list;
 
         $DATA['times'] = $time_var;
 
