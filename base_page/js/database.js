@@ -46,7 +46,7 @@ function save_pass_btn(e) {
     }
 }
 
-function on_pass_changed(){
+function on_pass_changed(data){
     if(confirm("Пароль изменен")){}
     $('.content_box').replaceWith(data);
 }
