@@ -64,15 +64,17 @@ class MainController extends db_handler {
             );
         }
 
+        if( !empty($username) && $username != '' ){
+            $DATA['new_user'] = [
+                'login' => $username,
+                'password' => $pass
+            ];
+        }
+
         $DATA['staffs'] = $users;
         $DATA['times'] = $time_var;
 
         $html = websun_parse_template_path($DATA, $tpl); 
-
-        // if($username !== ''){
-        //     echo $username . "<br/>";
-        //     echo $pass . "<br/>";
-        // }
 
         echo $html;
     }
@@ -95,8 +97,7 @@ class MainController extends db_handler {
         $username = $this->str2url($l_name);
         $pass = $this->generate_password();
         list ($setted_up_u_name, $setted_up_password) = $this-> add_staff( $f_name, $l_name, $s_name, $time, $username, $pass );
-        die($setted_up_u_name);
-        $this->_on_manage_db($username, $pass);   
+        $this->_on_manage_db($setted_up_u_name, $setted_up_password);   
     }
 
     function _on_toggle_rights_usr(){

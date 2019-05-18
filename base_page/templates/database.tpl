@@ -1,5 +1,11 @@
 <div class="content_box">
 <button class="add_staff">Добавить сотрудника </button>
+
+{%*new_user*}
+ <div> Сотрудник создан! Передайте данные: </div>
+ <div>Логин: {*new_user:login*}</div>
+ <div>Пароль: {*new_user:password*}</div>
+{%}
 <table border="1" style="margin-bottom: 20px; display:none;" class="database_table new_staff">
 <tr class="database_tr" id="new">
 <td><input type='text' class='new_pass_form name' placeholder='введите имя '></input></td>
