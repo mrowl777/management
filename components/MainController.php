@@ -188,12 +188,12 @@ class MainController extends db_handler {
             $dates = [];
             for( $i = 0; $i < 30; $i++ ){
                 $comparing_els = array_slice($dates, -2);
-                if($comparing_els[1] - $comparing_els[0] == 48*60*60){
+                if($comparing_els[1] - $comparing_els[0] == 24*60*60){
                     $dates[] = ( $start_date  + 96*60*60 );
                     $start_date = $start_date + 96*60*60;
                 }else{
-                    $dates[] = ( $start_date  + 48*60*60 );
-                    $start_date = $start_date + 48*60*60;
+                    $dates[] = ( $start_date  + 24*60*60 );
+                    $start_date = $start_date + 24*60*60;
                 }
                 
             }
