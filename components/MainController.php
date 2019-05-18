@@ -149,6 +149,7 @@ class MainController extends db_handler {
         }
 
         $str = implode(":", $dates);
+        $n_dates = implode(":", $n_dates);
 
         return array($str, $n_dates);
     }
