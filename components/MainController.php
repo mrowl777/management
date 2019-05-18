@@ -126,7 +126,7 @@ class MainController extends db_handler {
         for($i=0;$i<$counter;$i++){
             $dates[] = (end($dates) + 48*60*60);
         }
-        die(count($dates));
+        die(count($dates,COUNT_RECURSIVE));
         if(count($dates) < 31){
             $iterations = 31 - count($dates);
             
