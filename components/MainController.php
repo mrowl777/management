@@ -118,7 +118,7 @@ class MainController extends db_handler {
             if( $row["is_active"] == '1' ){
                 $staffs_list[] = array(
                     'id' => $row["id"], 
-                    'start_date' => strtotime( $row["start_date"] . '-1 day'), 
+                    'start_date' => strtotime( $row["start_date"] ), 
                     'work_time_type' => $row["work_time_type"], 
                 );
             }
