@@ -1,4 +1,14 @@
 <div class="content_box">
+
+
+
+{?!*have_access*}
+  <div>Доступ запрещен. Управлять сотрудниками может только менеджер.</div>
+  <div>Если вас только что зарегистрировали, рекомендуем изменить пароль</div>
+{?}
+
+
+{?*have_access*}
 {?!*new_user*}<button class="add_staff">Добавить сотрудника </button>{?}
 
 {%*new_user*}
@@ -43,6 +53,6 @@
     </tr>    
 {%}
 </table>
-
+{?}
 <script src="/staff_management/base_page/js/database.js"></script>
 </div>

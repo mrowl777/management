@@ -41,8 +41,9 @@ class MainController extends db_handler {
 
     function _on_manage_db( $username = '', $pass = '' ){
         ini_set('pcre.backtrack_limit', 1024*1024);
-
         $DATA = [];
+
+        $DATA['have_access'] = $this->_on_get_rights_usr();
 
         $users_table = $this->get_users_table();
         $times_table = $this->get_times_table();
@@ -100,9 +101,8 @@ class MainController extends db_handler {
         $this->_on_manage_db($setted_up_u_name, $setted_up_password);   
     }
 
-    function _on_toggle_rights_usr(){
-        $this-> toggle_user_rights( $_POST['username'] );
-        $this->_on_manage_db();
+    function _on_get_rights_usr(){
+        return $this-> get_user_rights( $_POST['username'] );
     }
 
     function _on_change_usr_pass(){

@@ -122,16 +122,14 @@ class db_handler {
         return array( $username, $pass );
     }
 
-    function toggle_user_rights( $name ){
+    function get_user_rights( $name ){
         $db_helper = $this->connect_db();
         $query = "SELECT is_admin FROM `panel_users` WHERE `nickname` = '".$name."'";
         $rights = $db_helper->query( $query );
         $rights = $rights->fetch_assoc();
-        $rights = $rights['is_admin'];
-        $is_admin = $rights === '1' ? 'is_admin = "0"' : 'is_admin = "1"';
-        $query = "UPDATE panel_users SET ".$is_admin." WHERE nickname = '" . $name . "'";
-        $db_helper->query( $query );
         $this->close_connection( $db_helper );
+
+        return $rights['is_admin'];
     }
 
     function update_password( $name, $password ){
