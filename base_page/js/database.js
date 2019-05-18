@@ -6,7 +6,7 @@ function init_events() {
     $('.add_staff').on('click', show_form);
     $('.load').on('click', add_staff);
     $('.change_pass').on('click', change_pass);
-    $('.save_pass_btn').on('click', save_pass_btn);
+    $('.spass').on('click', save_pass_btn);
 }
 
 function delete_panel_usr(e) {
