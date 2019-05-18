@@ -131,7 +131,7 @@ class MainController extends db_handler {
         foreach( $staffs_list as $k => $staff ){
             $start_date = $staff['start_date'];
             for( $i = 0; $i == 30; $i++ ){
-                $start_date = $start_date . ":" . strtotime( $start_date . '+2day' );
+                $start_date .= ":" . strtotime( $start_date . '+2day' );
             }
             $staffs_list[$k]['dates']= $start_date;
         }
