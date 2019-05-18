@@ -210,28 +210,22 @@ class MainController extends db_handler {
         $time_table = $this->get_timetable();
         $graphics = $this->get_times_table();
 
+        $dates_list = [];
+
+        $cur_timestamp = time();
 
         while ($row = $time_table->fetch_assoc()) {
             $timetable[] = array(
                 'uid' => $row["uid"], 
-                'normal_date' => $row["normal_dates"]
+                'normal_date' => $row["normal_dates"],
+                'l_date' => date('d.m.Y', $cur_timestamp)
             );
+            $cur_timestamp = $cur_timestamp + (24 * 60 * 60);
         }
 
         while ($row = $graphics->fetch_assoc()) {
             $time_var[$row['type']]=$row['time'];
         }
-
-        $dates_list = [];
-
-        $cur_timestamp = time();
-
-        for($i=0;$i<30;$i++){
-            $dates_list[] = date('d.m.Y', $cur_timestamp);
-            $cur_timestamp = $cur_timestamp + (24 * 60 * 60);
-        }
-
-        $DATA['dates_list'] = $dates_list;
 
         $DATA['times'] = $time_var;
 
