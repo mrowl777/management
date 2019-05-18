@@ -111,8 +111,11 @@ class MainController extends db_handler {
         $this->_on_open_settings();
     }
 
-    function dates_builder( $dates ){
-        $dates = explode( ":", $dates );
+    function dates_builder( $date ){
+        $dates = explode( ":", $date );
+        if(empty($dates)){
+            $dates[] = $date;
+        }
         $cur_time = time();
         $counter = 0;
         $length = 0;
@@ -126,7 +129,7 @@ class MainController extends db_handler {
             $length++;
         }
         echo(count($dates));
-        echo(empty($dates));
+        // echo(empty($dates));
 
         for($i=0;$i<$counter;$i++){
             $dates[] = (end($dates) + 48*60*60);
