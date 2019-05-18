@@ -111,8 +111,8 @@ class MainController extends db_handler {
         $this->_on_open_settings();
     }
 
-    function dates_builder( $date ){
-        $dates = explode( ":", $date );
+    function dates_builder( $_date ){
+        $dates = explode( ":", $_date );
         if(empty($dates)){
             $dates[] = $date;
         }
