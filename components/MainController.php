@@ -128,6 +128,7 @@ class MainController extends db_handler {
         }
 
         if(count($dates) < 31){
+            die('<');
             for($i=0;$i<31;$i++){
                 $dates[] = (end($dates) + 48*60*60);
             }
