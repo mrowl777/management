@@ -182,7 +182,7 @@ class db_handler {
 
     function put_timeline($uid, $times){
         $db_helper = $this->connect_db();
-        $n_date = date( 'd-m-Y', $times )
+        $n_date = date( 'd-m-Y', $times );
         $query = "INSERT INTO `timetable`(`id`, `uid`, `dates`, `normal_dates`) VALUES ('','".$uid."','".$times."','".$n_date."')";
         $db_helper->query( $query );
         $this->close_connection( $db_helper );
