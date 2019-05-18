@@ -163,7 +163,13 @@ class db_handler {
         $timetable = $db_helper->query( $query );
         $this->close_connection( $db_helper );
 
-        return $timetable;
+        $count = mysqli_num_rows( $timetable ) !== 0;
+
+        if( $count ){
+            return $timetable;
+        }
+
+        return false;
     }
 
     function remove_setting_param( $key ){
