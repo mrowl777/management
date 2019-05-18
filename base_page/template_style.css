@@ -66,7 +66,8 @@ img {
 
 .indentmenu ul li a.selected, .indentmenu ul li a:hover, .indentmenu ul li a[checked]{
 	color: white !important;
-	background: black url(images/templatemo_menu_hover_bg.jpg) center center;
+	border-bottom: solid 1px red;
+}
 }
 
 .indentmenu li .last{
