@@ -200,10 +200,7 @@ class MainController extends db_handler {
     function _on_open_settings(){
         ini_set('pcre.backtrack_limit', 1024*1024);
 
-
         $this->build_timetable();
-
-
 
         $DATA = [];
 
@@ -212,8 +209,8 @@ class MainController extends db_handler {
 
         while ($row = $time_table->fetch_assoc()) {
             $timetable[] = array(
-                'key' => $row["key"], 
-                'value' => $row["value"]
+                'uid' => $row["uid"], 
+                'normal_date' => $row["normal_date"]
             );
         }
 
