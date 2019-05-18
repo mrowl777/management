@@ -132,8 +132,8 @@ class MainController extends db_handler {
             $length++;
         }
 
-        if($length < 31){
-            $iterations = 31 - $length;
+        if($length < 30){
+            $iterations = 30 - $length;
             
             for($i=0;$i<$iterations;$i++){
                 $dates[] = (end($dates) + 48*60*60);
@@ -171,7 +171,7 @@ class MainController extends db_handler {
 
         foreach( $staffs_list as $k => $staff ){
             $start_date = $staff['start_date'];
-            for( $i = 0; $i < 31; $i++ ){
+            for( $i = 0; $i < 30; $i++ ){
                 $start_date .= ":" . ( $start_date  + 48*60*60 );
             }
             $this->put_timeline($staff['id'], $start_date);
