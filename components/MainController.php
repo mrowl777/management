@@ -230,11 +230,7 @@ class MainController extends db_handler {
         while ($row = $time_table->fetch_assoc()) {
             $_date = date('d.m.Y', $cur_timestamp);
             $_staff = $this->build_staff( $_date, $staff_list );
-            $timetable[] = array(
-                'uid' =>  '$this->get_staff_by_date( $_date )', 
-                'l_date' => $_date
-            );
-            array_merge($timetable, $_staff);
+            $timetable[] = $_staff;
             $cur_timestamp = $cur_timestamp + (24 * 60 * 60);
         }
 
@@ -270,7 +266,8 @@ class MainController extends db_handler {
         }
         $data = [
             'left_side' => $left_part,
-            'right_side' => $right_part
+            'right_side' => $right_part,
+            'l_date' => $_date
         ];
         return $data;
     }
