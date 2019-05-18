@@ -144,8 +144,6 @@ class MainController extends db_handler {
 
         $str = implode(":", $dates);
 
-        echo( $str ) . "<br/>";
-
         return $str;
     }
 
@@ -158,7 +156,7 @@ class MainController extends db_handler {
         if( $tt ){
             while ($row = $tt->fetch_assoc()) {
                 $dates = $this->dates_builder($row["dates"]);
-                $this->update_timetable( $row["id"], $dates );
+                $this->update_timetable( $row["uid"], $dates );
             }
 
             return;
