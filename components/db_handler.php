@@ -87,6 +87,25 @@ class db_handler {
         return $staff_data;
     }
 
+    function get_staff_by_date( $date ){
+        $db_helper = $this->connect_db();
+        $date = DateTime::createFromFormat('d.m.Y', $date)->format('d-m-Y');
+        $query = "SELECT `uid` FROM `timetable` WHERE `normal_dates` LIKE '%".$date."%'";
+        $staff = $db_helper->query( $query );
+        $this->close_connection( $db_helper );
+
+        $count = mysqli_num_rows( $staff ) !== 0;
+
+        if( $count ){
+            $arr = [];
+            while ($row = $staff->fetch_assoc()) {
+                $arr[] = $row['uid'];
+            }
+            return implode(",", $arr);
+        }
+
+        return '0';
+    }
 
     function get_times_table(){
         $db_helper = $this->connect_db();

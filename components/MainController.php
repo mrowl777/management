@@ -203,22 +203,20 @@ class MainController extends db_handler {
         $this->build_timetable();
 
         $DATA = [];
-
         $timetable = [];
         $time_var = [];
+        $dates_list = [];
 
         $time_table = $this->get_timetable();
         $graphics = $this->get_times_table();
-
-        $dates_list = [];
-
         $cur_timestamp = time();
 
         while ($row = $time_table->fetch_assoc()) {
+            $_date = date('d.m.Y', $cur_timestamp);
             $timetable[] = array(
-                'uid' => $row["uid"], 
+                'uid' => get_staff_by_date( $_date ), 
                 'normal_date' => $row["normal_dates"],
-                'l_date' => date('d.m.Y', $cur_timestamp)
+                'l_date' => $_date
             );
             $cur_timestamp = $cur_timestamp + (24 * 60 * 60);
         }
