@@ -130,10 +130,10 @@ class MainController extends db_handler {
 
         foreach( $staffs_list as $k => $staff ){
             $start_date = $staff['start_date'];
-            for( $i = 0; $i == 30; $i++ ){
-                $start_date .= ":" . strtotime( $start_date . '+2day' );
+            for( $i = 0; $i < 31; $i++ ){
+                $start_date .= ":" . strtotime( $start_date . '+2 day' );
             }
-            $staffs_list[$k]['dates']= $start_date;
+            $staffs_list[$k]['dates'] = $start_date;
         }
 
         die(var_dump($staffs_list));
