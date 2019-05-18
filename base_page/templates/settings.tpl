@@ -5,8 +5,6 @@
 {%*times*}
   <th>{*times:*}</th>
 {%}
-<th><i name='add_btn' class="icon-plus icon-large add"></i></th>
-<th></th>
 </tr>
 {%*settings*} 
 <tr class="settings_tr">
