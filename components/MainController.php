@@ -205,7 +205,11 @@ class MainController extends db_handler {
         $DATA = [];
 
         $timetable = [];
+        $time_var = [];
+
         $time_table = $this->get_timetable();
+        $graphics = $this->get_times_table();
+
 
         while ($row = $time_table->fetch_assoc()) {
             $timetable[] = array(
@@ -213,6 +217,13 @@ class MainController extends db_handler {
                 'normal_date' => $row["normal_dates"]
             );
         }
+
+
+        while ($row = $graphics->fetch_assoc()) {
+            $time_var[$row['type']]=$row['time'];
+        }
+
+        $DATA['times'] = $time_var;
 
         $DATA['settings'] = $timetable;
 

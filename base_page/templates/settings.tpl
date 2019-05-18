@@ -1,8 +1,10 @@
 <div class="content_box">
 <table border="1" class="settings_table">
 <tr>
-<th>UID</th>
-<th>PARAM_VALUE</th>
+<th>ДАТА</th>
+{%*times*}
+  <th>{*times:*}</th>
+{%}
 <th><i name='add_btn' class="icon-plus icon-large add"></i></th>
 <th></th>
 </tr>
