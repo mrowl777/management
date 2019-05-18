@@ -187,7 +187,7 @@ class MainController extends db_handler {
             $start_date = $staff['start_date'];
             $dates = [];
             for( $i = 0; $i < 30; $i++ ){
-                $dates[] =  ( $start_date  + 48*60*60 );
+                $dates[] = ( $start_date  + 48*60*60 );
                 $start_date = $start_date + 48*60*60;
             }
             $normal_dates = $this->build_normal_dates( $dates );
@@ -227,7 +227,7 @@ class MainController extends db_handler {
         $staff_list = $this->make_staffs_array();
         $cur_timestamp = time();
 
-        while ($row = $time_table->fetch_assoc()) {
+        for($i=0;$i<30;$i++) {
             $_date = date('d.m.Y', $cur_timestamp);
             $timetable[] = $this->build_staff( $_date, $staff_list );
             $cur_timestamp = $cur_timestamp + (24 * 60 * 60);
