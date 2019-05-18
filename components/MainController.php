@@ -116,7 +116,7 @@ class MainController extends db_handler {
         $staffs = $this->get_staffs();
         $tt = $this->get_timetable();
 
-        if( $tt && !empty($tt) ){
+        if( $tt && $tt !== '' && $tt != 0 ){
             die('ok');
             while ($row = $tt->fetch_assoc()) {
                 $staffs_list[] = array(
