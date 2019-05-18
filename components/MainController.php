@@ -124,11 +124,16 @@ class MainController extends db_handler {
             }
         }
 
-        die(var_dump($staffs_list));
+        $t = [];
+
+
 
         foreach( $staffs_list as $k => $staff ){
-
+            $t[] = $staff['start_date'];
         }
+
+        die(var_dump($t));
+
         $cur_date = time(); 
         // echo($timestamp); 
         // echo "\n"; 
