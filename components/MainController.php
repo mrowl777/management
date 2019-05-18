@@ -132,7 +132,7 @@ class MainController extends db_handler {
             $t[] = $staff['start_date'];
         }
 
-        die(strtotime('+2 day', $t[0]));
+        die(strtotime('+2 day', time($t[0])));
 
         $cur_date = time(); 
         // echo($timestamp); 
