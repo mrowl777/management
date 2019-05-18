@@ -9,11 +9,10 @@
 <th></th>
 </tr>
 {%*settings*} 
-<tr class="settings_tr" id = "{*settings:key*}">
+<tr class="settings_tr">
+<td>data</td>
 <td >{*settings:uid*}</td>
 <td><input class="token" value = "{*settings:normal_date*}" > </input></td>
-<td><i name='save_btn' class="icon-ok icon-large"></i> </td>
-<td><i name='remove_btn' class="icon-remove icon-large rm"></i> </td>
 </tr>
 {%}
 </table>
