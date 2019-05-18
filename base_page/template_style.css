@@ -127,3 +127,8 @@ img {
     border-radius: 4px;
     opacity: 0.5;
 }
+.access_denied{
+	text-align: center;
+    font-size: 20;
+    margin-bottom: 30px;
+}
