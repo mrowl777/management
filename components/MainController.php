@@ -231,7 +231,7 @@ class MainController extends db_handler {
             $_date = date('d.m.Y', $cur_timestamp);
             $_staff = $this->build_staff( $_date, $staff_list );
             $timetable[] = $_staff;
-            $cur_timestamp = $cur_timestamp + (48 * 60 * 60);
+            $cur_timestamp = $cur_timestamp + (24 * 60 * 60);
         }
 
         while ($row = $graphics->fetch_assoc()) {
