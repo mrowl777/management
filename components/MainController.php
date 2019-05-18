@@ -126,6 +126,7 @@ class MainController extends db_handler {
             $length++;
         }
         echo(count($dates));
+        echo(empty($dates));
 
         for($i=0;$i<$counter;$i++){
             $dates[] = (end($dates) + 48*60*60);
