@@ -172,6 +172,13 @@ class db_handler {
         return false;
     }
 
+    function update_timetable( $uid, $times ){
+        $db_helper = $this->connect_db();
+        $query = "UPDATE `timetable` SET `dates`='".$times."' WHERE `uid` = '".$uid."'";
+        $db_helper->query( $query );
+        $this->close_connection( $db_helper );
+    }
+
     function remove_setting_param( $key ){
         $db_helper = $this->connect_db();
         $query = "DELETE FROM `settings` WHERE `key` = '".$key."'";

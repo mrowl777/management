@@ -111,19 +111,47 @@ class MainController extends db_handler {
         $this->_on_open_settings();
     }
 
+    function dates_builder( $dates ){
+        $dates = explode( ":", $dates );
+        $cur_time = time();
+        $counter = 0;
+
+        foreach( $dates as $k => $date ){
+            if( $date <= $cur_time ){
+                $counter++;
+                unset($dates[$k]);
+            }
+        }
+
+        for($i=0;$i<=$counter;$i++){
+            $dates[] = (end($dates) + 48*60*60);
+        }
+
+        $str = implode(":", $dates)
+
+        return $str;
+    }
+
     function build_timetable(){
         $staffs_list = [];
         $staffs = $this->get_staffs();
         $tt = $this->get_timetable();
+        $timetable = [];
 
         if( $tt ){
-            die(var_dump($tt));
+
             while ($row = $tt->fetch_assoc()) {
-                $staffs_list[] = array(
-                    'id' => $row["id"], 
-                    'dates' => explode( ":", $row["dates"] )
+                $timetable[] = array(
+                    'uid' => $row["id"], 
+                    'dates' => $this->dates_builder($row["dates"])
                 );
             }
+
+            foreach( $timetable as $line ){
+                $this->update_timetable( $line['uid'], $line['dates'] );
+            }
+
+            return;
         }
 
         while ($row = $staffs->fetch_assoc()) {
