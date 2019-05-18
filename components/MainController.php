@@ -115,18 +115,22 @@ class MainController extends db_handler {
         $dates = explode( ":", $dates );
         $cur_time = time();
         $counter = 0;
+        $length = 0;
 
         foreach( $dates as $k => $date ){
             if( $date <= $cur_time ){
                 $counter++;
+                $length--;
                 unset($dates[$k]);
             }
+            $length++;
         }
 
         for($i=0;$i<$counter;$i++){
             $dates[] = (end($dates) + 48*60*60);
+            $length++;
         }
-        die(count($dates,COUNT_RECURSIVE));
+        die($length);
         if(count($dates) < 31){
             $iterations = 31 - count($dates);
             
