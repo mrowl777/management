@@ -128,14 +128,13 @@ class MainController extends db_handler {
             $length++;
         }
 
-        echo( var_dump($length)) . "<br/>";
-
         for($i=0;$i<$counter;$i++){
             $dates[] = (end($dates) + 48*60*60);
             $length++;
         }
 
         if($length < 30){
+            echo( var_dump($length)) . "<br/>";
             $iterations = 30 - $length;
             
             for($i=0;$i<$iterations;$i++){
