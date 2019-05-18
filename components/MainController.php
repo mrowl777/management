@@ -114,7 +114,7 @@ class MainController extends db_handler {
     function build_timetable(){
         $staffs_list = [];
         $staffs = $this->get_staffs();
-        while ($row = $users_table->fetch_assoc()) {
+        while ($row = $staffs->fetch_assoc()) {
             if( $row["is_active"] == '1' ){
                 $staffs_list[] = array(
                     'id' => $row["id"], 
