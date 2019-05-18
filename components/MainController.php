@@ -118,21 +118,25 @@ class MainController extends db_handler {
             if( $row["is_active"] == '1' ){
                 $staffs_list[] = array(
                     'id' => $row["id"], 
-                    'start_date' => $row["start_date"], 
+                    'start_date' => strtotime( $row["start_date"] . '-1 day'), 
                     'work_time_type' => $row["work_time_type"], 
                 );
             }
         }
 
-        $t = [];
+        /**в массиве сейчас метка даты начала работ**/
 
 
 
         foreach( $staffs_list as $k => $staff ){
-            $t[] = $staff['start_date'];
+            $start_date = $staff['start_date'];
+            for( $i = 0; $i == 30; $i++ ){
+                $start_date = $start_date . ":" . strtotime( $start_date . '+2day' );
+            }
+            $staffs_list[$k]['dates']= $start_date;
         }
 
-        die(strtotime('+2 day', time($t[0])));
+        die(var_dump($staffs_list));
 
         $cur_date = time(); 
         // echo($timestamp); 
