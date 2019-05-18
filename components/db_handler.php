@@ -127,6 +127,13 @@ class db_handler {
          /**заводим ему учетку  */
         $query = "INSERT INTO `panel_users`(`id`, `nickname`, `password`, `hash`, `is_admin`, `reg_date`) VALUES ( '','".$username."','".$pass_md."','','0', CURRENT_TIMESTAMP )";
         $result = $db_helper->query( $query );
+
+
+        /***добавляем в расписание */
+        $query = "SELECT `id` FROM `staff_data` WHERE `first_name` = '".$first_name."' AND `last_name` = '".$last_name."'";
+        $uid = $db_helper->query( $query );
+        $uid = $uid->fetch_assoc();
+        $this->put_timeline($uid['id'], time())
         $this->close_connection( $db_helper );
         /** возвращаем логин и пароль сотрудника   */
         return array( $username, $pass );

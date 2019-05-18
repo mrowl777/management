@@ -127,10 +127,17 @@ class MainController extends db_handler {
             $dates[] = (end($dates) + 48*60*60);
         }
 
+        if(count($dates) < 31){
+            for($i=0;$i<31;$i++){
+                $dates[] = (end($dates) + 48*60*60);
+            }
+        }
+
         $str = implode(":", $dates);
 
         return $str;
     }
+
 
     function build_timetable(){
         $staffs_list = [];
