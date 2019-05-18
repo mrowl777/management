@@ -123,7 +123,7 @@ class MainController extends db_handler {
             }
         }
 
-        for($i=0;$i<=$counter;$i++){
+        for($i=0;$i<$counter;$i++){
             $dates[] = (end($dates) + 48*60*60);
         }
 
