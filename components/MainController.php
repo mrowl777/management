@@ -195,6 +195,20 @@ class MainController extends db_handler {
             $this->put_timeline($staff['id'], $result_str, $normal_dates );
         }
     }
+
+    function make_staffs_array(){
+        $staff = $this->get_users_table();
+        $staff_list = [];
+        while ($row = $staff->fetch_assoc()) {
+            $title = $row['last_name'] . " " . $row['first_name'] . " " . $row['surname'];
+            $work_time = $row['work_time_type'];
+            $staff_list[$row['id']]=[
+                'name' => $title,
+                'time' => $work_time
+            ]
+        }
+        return $staff_list;
+    }
     
 
     function _on_open_settings(){
@@ -206,18 +220,21 @@ class MainController extends db_handler {
         $timetable = [];
         $time_var = [];
         $dates_list = [];
+        
 
         $time_table = $this->get_timetable();
         $graphics = $this->get_times_table();
+        $staff_list = $this->make_staffs_array();
         $cur_timestamp = time();
 
         while ($row = $time_table->fetch_assoc()) {
             $_date = date('d.m.Y', $cur_timestamp);
+            $_staff = $this->bulid_staff( $_date, $staff_list );
             $timetable[] = array(
-                'uid' =>  $this->get_staff_by_date( $_date ), 
-                'normal_date' => $row["normal_dates"],
+                'uid' =>  '$this->get_staff_by_date( $_date )', 
                 'l_date' => $_date
             );
+            array_merge($timetable, $_staff);
             $cur_timestamp = $cur_timestamp + (24 * 60 * 60);
         }
 
@@ -234,6 +251,28 @@ class MainController extends db_handler {
         $html = websun_parse_template_path($DATA, $tpl); 
 
         echo $html;
+    }
+
+    function build_staff( $_date, $staff_list ){
+        $uids = $this->get_staff_by_date( $_date );
+        $uids = explode(",",$uids);
+        $left_part = '';
+        $right_part = '';
+        foreach($uids as $id){
+            if(isset($staff_list[$id])){
+                $time = $staff_list[$id]['time'];
+                if( $time == '1' ){
+                    $left_part .= $staff_list[$id]['name'] . "<br/>";
+                }else{
+                    $right_part .= $staff_list[$id]['name'] . "<br/>"; 
+                }
+            }
+        }
+        $data = [
+            'left_side' => $left_part,
+            'right_side' => $right_part
+        ];
+        return $data;
     }
 
     function _on_setup_param(){

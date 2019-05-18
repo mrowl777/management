@@ -9,8 +9,8 @@
 {%*settings*} 
 <tr class="settings_tr">
 <td>{*settings:l_date*}</td>
-<td >{*settings:uid*}</td>
-<td><input class="token" value = "{*settings:normal_date*}" > </input></td>
+<td>{*settings:left_side*}</td>
+<td>{*settings:right_side*}</td>
 </tr>
 {%}
 </table>
