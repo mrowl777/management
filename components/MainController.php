@@ -205,7 +205,7 @@ class MainController extends db_handler {
             $staff_list[$row['id']]=[
                 'name' => $title,
                 'time' => $work_time
-            ]
+            ];
         }
         return $staff_list;
     }
