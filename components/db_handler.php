@@ -180,9 +180,8 @@ class db_handler {
         return false;
     }
 
-    function put_timeline($uid, $times){
+    function put_timeline($uid, $times, $n_date = '' ){
         $db_helper = $this->connect_db();
-        $n_date = date( 'd-m-Y', $times );
         $query = "INSERT INTO `timetable`(`id`, `uid`, `dates`, `normal_dates`) VALUES ('','".$uid."','".$times."','".$n_date."')";
         $db_helper->query( $query );
         $this->close_connection( $db_helper );

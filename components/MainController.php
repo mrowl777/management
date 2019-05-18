@@ -111,6 +111,16 @@ class MainController extends db_handler {
         $this->_on_open_settings();
     }
 
+    function build_normal_dates( $dates_arr ){
+        $n_dates = [];
+
+        foreach( $dates_arr as $each ){
+            $n_dates[] =  date( 'd-m-Y', $each );
+        }
+
+        return implode(":", $n_dates);
+    }
+
     function dates_builder( $_date ){
         $dates = explode( ":", $_date );
         $cur_time = time();
@@ -142,14 +152,9 @@ class MainController extends db_handler {
             }
         }
 
-        $n_dates = [];
-
-        foreach( $dates as $each ){
-            $n_dates[] =  date( 'd-m-Y', $each );
-        }
-
+        
         $str = implode(":", $dates);
-        $n_dates = implode(":", $n_dates);
+        $n_dates = $this->build_normal_dates( $dates );
 
         return array($str, $n_dates);
     }
@@ -180,12 +185,14 @@ class MainController extends db_handler {
 
         foreach( $staffs_list as $k => $staff ){
             $start_date = $staff['start_date'];
-            $result_str = '';
+            $dates = [];
             for( $i = 0; $i < 30; $i++ ){
-                $result_str .= ":" . ( $start_date  + 48*60*60 );
+                $dates[] =  ( $start_date  + 48*60*60 );
                 $start_date = $start_date + 48*60*60;
             }
-            $this->put_timeline($staff['id'], $result_str);
+            $normal_dates = $this->build_normal_dates( $dates );
+            $result_str = implode(":", $dates);
+            $this->put_timeline($staff['id'], $result_str, $normal_dates );
         }
     }
     
