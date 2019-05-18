@@ -87,14 +87,6 @@ class db_handler {
         return $staff_data;
     }
 
-    function get_timetable(){
-        $db_helper = $this->connect_db();
-        $query = "SELECT * FROM `timetable` WHERE 1";
-        $timetable = $db_helper->query( $query );
-        $this->close_connection( $db_helper );
-
-        return $timetable;
-    }
 
     function get_times_table(){
         $db_helper = $this->connect_db();
