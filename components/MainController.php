@@ -95,6 +95,7 @@ class MainController extends db_handler {
         $username = $this->str2url($l_name);
         $pass = $this->generate_password();
         list ($setted_up_u_name, $setted_up_password) = $this-> add_staff( $f_name, $l_name, $s_name, $time, $username, $pass );
+        die($setted_up_u_name);
         $this->_on_manage_db($username, $pass);   
     }
 

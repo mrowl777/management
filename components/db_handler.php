@@ -113,13 +113,13 @@ class db_handler {
             $is_exist = $this->check_free_name( $username );
         }
         /**генерим пароль */
-        $pass = md5(md5($pass)); 
+        $pass_md = md5(md5($pass)); 
          /**заводим ему учетку  */
-        $query = "INSERT INTO `panel_users`(`id`, `nickname`, `password`, `hash`, `is_admin`, `reg_date`) VALUES ( '','".$username."','".$pass."','','0', CURRENT_TIMESTAMP )";
+        $query = "INSERT INTO `panel_users`(`id`, `nickname`, `password`, `hash`, `is_admin`, `reg_date`) VALUES ( '','".$username."','".$pass_md."','','0', CURRENT_TIMESTAMP )";
         $result = $db_helper->query( $query );
         $this->close_connection( $db_helper );
         /** возвращаем логин и пароль сотрудника   */
-        return array( $username, $pass);
+        return array( $username, $pass );
     }
 
     function toggle_user_rights( $name ){
