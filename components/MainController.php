@@ -214,7 +214,7 @@ class MainController extends db_handler {
         while ($row = $time_table->fetch_assoc()) {
             $_date = date('d.m.Y', $cur_timestamp);
             $timetable[] = array(
-                'uid' => get_staff_by_date( $_date ), 
+                'uid' =>  $this->get_staff_by_date( $_date ), 
                 'normal_date' => $row["normal_dates"],
                 'l_date' => $_date
             );
