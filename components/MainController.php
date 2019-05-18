@@ -113,9 +113,6 @@ class MainController extends db_handler {
 
     function dates_builder( $_date ){
         $dates = explode( ":", $_date );
-        if(count($dates) == 0 ){
-            die($_date);
-        }
         $cur_time = time();
         $counter = 0;
         $length = 0;
