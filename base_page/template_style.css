@@ -66,8 +66,7 @@ img {
 
 .indentmenu ul li a.selected, .indentmenu ul li a:hover, .indentmenu ul li a[checked]{
 	color: white !important;
-	border-bottom: solid 1px red;
-}
+	border-bottom: dashed 2px red;
 }
 
 .indentmenu li .last{
