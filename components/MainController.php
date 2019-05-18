@@ -9,7 +9,7 @@ class MainController extends db_handler {
         $blocked_menu = true;
         $hash = $this->get_usr_hash( $_COOKIE["user_name"] );
 
-        if ( isset($_COOKIE["online_tracker"]) && $_COOKIE["hash"] == $hash ){
+        if ( isset($_COOKIE["staff_management"]) && $_COOKIE["hash"] == $hash ){
             $blocked_menu = false;
         }
 
@@ -102,7 +102,7 @@ class MainController extends db_handler {
     }
 
     function _on_get_rights_usr(){
-        return $this-> get_user_rights( $_POST['username'] );
+        return $this->get_user_rights( $_COOKIE["user_name"] );
     }
 
     function _on_change_usr_pass(){

@@ -3,7 +3,7 @@
 class Auth extends db_handler{
 
     function check_session(){
-        if ( isset($_COOKIE["online_tracker"]) ){
+        if ( isset($_COOKIE["staff_management"]) ){
             $usr = $_COOKIE["user_name"];
             $hash = $_COOKIE["hash"];
             $db_hash = $this->get_usr_hash( $usr );
@@ -27,7 +27,7 @@ class Auth extends db_handler{
     function _on_kill_session(){
         $usr = $_COOKIE["user_name"];
         setcookie('user_name', null, -1, '/');
-        setcookie('online_tracker', null, -1, '/');
+        setcookie('staff_management', null, -1, '/');
         setcookie('hash', null, -1, '/');
         $this->reset_hash( $usr );
     }
@@ -60,7 +60,7 @@ class Auth extends db_handler{
         $nums= preg_replace ('~[^0-9]+~','', $password);
         $hash = hash('sha256', time( $nums ));
         $this->setup_hash( $hash, $name );
-        setcookie( 'online_tracker', 'session', 0 );
+        setcookie( 'staff_management', 'session', 0 );
         setcookie( 'user_name', $name, 0 );
         setcookie( 'hash', $hash, 0 );
         header('Location: http://u76899.netangels.ru/staff_management/');
