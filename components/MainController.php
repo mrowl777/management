@@ -105,11 +105,13 @@ class MainController extends db_handler {
         return $this->get_user_rights( $_COOKIE["user_name"] );
     }
 
-    function _on_change_usr_pass(){
-        $pass = md5(md5($_POST['password']));
-        $this-> update_password( $_POST['username'], $pass );
-        $this->_on_manage_db();
+    function _on_update_pass(){
+        $pass = md5(md5($_POST['pass']));
+        $this->update_password( $_COOKIE["user_name"], $pass );
+        $this->_on_open_settings();
     }
+
+    
 
     function _on_open_settings(){
         ini_set('pcre.backtrack_limit', 1024*1024);

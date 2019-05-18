@@ -51,11 +51,6 @@ if( isset($_POST) ){
             die();
         break;
 
-        case 'change_usr_pass':
-            $call->_on_change_usr_pass();
-            die();
-        break;
-
         case 'open_settings':
             if( $auth->check_session() ){
                 $call->_on_open_settings();
@@ -75,6 +70,11 @@ if( isset($_POST) ){
 
         case 'add_param':
             $call->_on_add_param();
+            die();
+        break;
+        
+        case 'set_newpass':
+            $call->_on_update_pass();
             die();
         break;
         
