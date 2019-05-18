@@ -168,7 +168,7 @@ class MainController extends db_handler {
             for( $i = 0; $i < 31; $i++ ){
                 $start_date .= ":" . ( $start_date  + 48*60*60 );
             }
-            $this->put_timeline($staffs_list['id'], $start_date);
+            $this->put_timeline($staff['id'], $start_date);
         }
     }
     
