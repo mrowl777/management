@@ -142,9 +142,15 @@ class MainController extends db_handler {
             }
         }
 
+        $n_dates = []
+
+        foreach( $dates as $each ){
+            $n_dates[] =  date( 'd-m-Y', $each );
+        }
+
         $str = implode(":", $dates);
 
-        return $str;
+        return array($str, $n_dates);
     }
 
 
@@ -155,8 +161,8 @@ class MainController extends db_handler {
 
         if( $tt ){
             while ($row = $tt->fetch_assoc()) {
-                $dates = $this->dates_builder($row["dates"]);
-                $this->update_timetable( $row["uid"], $dates );
+                list($dates, $n_dates) = $this->dates_builder($row["dates"]);
+                $this->update_timetable( $row["uid"], $dates, $n_dates );
             }
 
             return;

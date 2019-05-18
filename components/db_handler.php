@@ -182,14 +182,15 @@ class db_handler {
 
     function put_timeline($uid, $times){
         $db_helper = $this->connect_db();
-        $query = "INSERT INTO `timetable`(`id`, `uid`, `dates`) VALUES ('','".$uid."','".$times."')";
+        $n_date = date( 'd-m-Y', $times )
+        $query = "INSERT INTO `timetable`(`id`, `uid`, `dates`, `normal_dates`) VALUES ('','".$uid."','".$times."','".$n_date."')";
         $db_helper->query( $query );
         $this->close_connection( $db_helper );
     }
 
-    function update_timetable( $uid, $times ){
+    function update_timetable( $uid, $times, $dates ){
         $db_helper = $this->connect_db();
-        $query = "UPDATE `timetable` SET `dates`='".$times."' WHERE `uid` = '".$uid."'";
+        $query = "UPDATE `timetable` SET `dates`='".$times."', `normal_dates`='".$dates."' WHERE `uid` = '".$uid."'";
         $db_helper->query( $query );
         $this->close_connection( $db_helper );
     }
