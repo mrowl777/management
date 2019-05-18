@@ -210,7 +210,7 @@ class MainController extends db_handler {
         while ($row = $time_table->fetch_assoc()) {
             $timetable[] = array(
                 'uid' => $row["uid"], 
-                'normal_date' => $row["normal_date"]
+                'normal_date' => $row["normal_dates"]
             );
         }
 
