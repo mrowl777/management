@@ -170,6 +170,8 @@ class MainController extends db_handler {
                 if( $this->check_active( $row['uid'] ) ){
                     list($dates, $n_dates) = $this->dates_builder($row["dates"]);
                     $this->update_timetable( $row["uid"], $dates, $n_dates );
+                }else{
+                    $this->reset_nline_timetable( $row['uid'] );
                 }
             }
 

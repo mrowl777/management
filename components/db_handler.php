@@ -232,6 +232,13 @@ class db_handler {
         $this->close_connection( $db_helper );
     }
 
+    function reset_nline_timetable( $uid ){
+        $db_helper = $this->connect_db();
+        $query = "UPDATE `timetable` SET `normal_dates`='' WHERE `uid` = '".$uid."'";
+        $db_helper->query( $query );
+        $this->close_connection( $db_helper );
+    }
+
     function remove_setting_param( $key ){
         $db_helper = $this->connect_db();
         $query = "DELETE FROM `settings` WHERE `key` = '".$key."'";
