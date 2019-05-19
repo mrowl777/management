@@ -92,6 +92,7 @@ class MainController extends db_handler {
 
     function _on_add_staff(){
         $f_name = $_POST['first_name'];
+        die($l_name);
         $l_name = $_POST['last_name'];
         $s_name = $_POST['surname'];
         $time = $_POST['time'];
