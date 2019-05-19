@@ -132,7 +132,6 @@ class db_handler {
 
     function add_staff( $first_name, $last_name, $surname, $time = '', $username, $pass ){
         $db_helper = $this->connect_db();
-        die($last_name);
         /** заполняем данные сотрудника */
         $query = "INSERT INTO `staff_data`(`id`, `first_name`, `last_name`, `surname`, `is_active`, `start_date`, `work_time_type`) VALUES ('','" . $first_name . "','" . $last_name . "', '".$surname."' , '1', CURRENT_TIMESTAMP, '".$time."')";
         $result = $db_helper->query( $query );
@@ -150,6 +149,7 @@ class db_handler {
 
 
         /***добавляем в расписание */
+        die($last_name);
         $query = "SELECT `id` FROM `staff_data` WHERE `first_name` = '".$first_name."' AND `last_name` = '".$last_name."'";
         $uid = $db_helper->query( $query );
         $uid = $uid->fetch_assoc();
