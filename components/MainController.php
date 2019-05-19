@@ -287,7 +287,7 @@ class MainController extends db_handler {
             'left_side' => $left_part,
             'left_side_color' => $l_color,
             'right_side' => $right_part,
-            'left_side_color' => $r_color,
+            'right_side_color' => $r_color,
             'l_date' => $_date
         ];
         return $data;

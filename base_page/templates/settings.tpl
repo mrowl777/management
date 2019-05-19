@@ -10,7 +10,7 @@
 <tr class="settings_tr">
 <td>{*settings:l_date*}</td>
 <td class="{*settings:left_side_color*}">{*settings:left_side*}</td>
-<td class="">{*settings:left_side_color*}</td>
+<td class="{*settings:right_side_color*}"></td>
 </tr>
 {%}
 </table>
