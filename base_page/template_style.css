@@ -142,8 +142,10 @@ img {
     margin-bottom: 30px;
 }
 .status_red{
-	background: red;
+	/* background: red; */
+	border: 2px solid red;
 }
 .status_green{
-	background: chartreuse;
+	/* background: chartreuse; */
+	border: 2px solid chartreuse;
 }
