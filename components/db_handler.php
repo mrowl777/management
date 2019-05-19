@@ -199,6 +199,25 @@ class db_handler {
         return false;
     }
 
+    function check_active( $id ){
+        $db_helper = $this->connect_db();
+        $query = "SELECT `is_active` FROM `staff_data` WHERE `id` = '".$id."'";
+        $status = $db_helper->query( $query );
+        $this->close_connection( $db_helper );
+
+        $count = mysqli_num_rows( $status ) !== 0;
+
+        if( $count ){
+            while ($row = $status->fetch_assoc()) {
+                if( $row["is_active"] == '1' ){
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
     function put_timeline($uid, $times, $n_date = '' ){
         $db_helper = $this->connect_db();
         $query = "INSERT INTO `timetable`(`id`, `uid`, `dates`, `normal_dates`) VALUES ('','".$uid."','".$times."','".$n_date."')";
