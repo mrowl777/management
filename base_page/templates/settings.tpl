@@ -9,8 +9,8 @@
 {%*settings*} 
 <tr class="settings_tr">
 <td>{*settings:l_date*}</td>
-<td>{*settings:left_side*}</td>
-<td>{*settings:right_side*}</td>
+<td class="{*settings:left_side_color*}">{*settings:left_side*}</td>
+<td class="">{*settings:left_side_color*}</td>
 </tr>
 {%}
 </table>

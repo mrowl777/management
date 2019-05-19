@@ -141,3 +141,9 @@ img {
     font-size: 20;
     margin-bottom: 30px;
 }
+.status_red{
+	background: red;
+}
+.status_green{
+	background: chartreuse;
+}

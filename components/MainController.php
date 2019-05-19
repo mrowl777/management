@@ -266,22 +266,49 @@ class MainController extends db_handler {
         $uids = explode(",",$uids);
         $left_part = '';
         $right_part = '';
+        $l_counter = 0;
+        $r_counter = 0;
         foreach($uids as $id){
             if(isset($staff_list[$id])){
                 $time = $staff_list[$id]['time'];
                 if( $time == '1' ){
                     $left_part .= $staff_list[$id]['name'] . "<br/>";
+                    $l_counter++;
                 }else{
                     $right_part .= $staff_list[$id]['name'] . "<br/>"; 
+                    $r_counter++;
                 }
             }
         }
+
+        list($l_color, $r_color) = $this->generate_bg( $l_counter, $r_counter );
+        
         $data = [
             'left_side' => $left_part,
+            'left_side_color' => $l_color,
             'right_side' => $right_part,
+            'left_side_color' => $r_color,
             'l_date' => $_date
         ];
         return $data;
+    }
+
+    function generate_bg( $l_counter, $r_counter ){
+        $l_color = '';
+        $r_color = '';
+        if( $l_counter < 5 ){
+            $l_color = 'status_red';
+        }
+        if( $l_counter > 10 ){
+            $l_color = 'status_green';
+        }
+        if( $r_counter < 5 ){
+            $r_color = 'status_red';
+        }
+        if( $r_counter > 10 ){
+            $r_color = 'status_green';
+        }
+        return array( $l_color, $r_color );
     }
 
     function _on_setup_param(){
