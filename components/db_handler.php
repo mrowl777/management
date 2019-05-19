@@ -11,7 +11,7 @@ class db_handler {
         if ($mysqli->connect_errno) {
             echo "Не удалось подключиться к MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
         }
-        mysql_query("set names utf8");
+        $mysqli->query("set names utf8");
 
         return $mysqli;
     }
