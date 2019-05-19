@@ -41,6 +41,8 @@ class MainController extends db_handler {
 
     function _on_manage_db( $username = '', $pass = '' ){
         ini_set('pcre.backtrack_limit', 1024*1024);
+        header("Content-Type: text/html; charset=utf-8");
+        ini_set("default_charset", 'utf-8');
         $DATA = [];
 
         $DATA['have_access'] = $this->_on_get_rights_usr();

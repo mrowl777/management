@@ -149,7 +149,6 @@ class db_handler {
 
 
         /***добавляем в расписание */
-        die($last_name);
         $query = "SELECT `id` FROM `staff_data` WHERE `first_name` = '".$first_name."' AND `last_name` = '".$last_name."'";
         $uid = $db_helper->query( $query );
         $uid = $uid->fetch_assoc();
