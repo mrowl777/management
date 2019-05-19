@@ -169,12 +169,8 @@ class MainController extends db_handler {
             while ($row = $tt->fetch_assoc()) {
                 if( $this->check_active( $row['uid'] ) ){
                     list($dates, $n_dates) = $this->dates_builder($row["dates"]);
-                }else{
-                    $dates='';
-                    $n_dates='';
+                    $this->update_timetable( $row["uid"], $dates, $n_dates );
                 }
-                
-                $this->update_timetable( $row["uid"], $dates, $n_dates );
             }
 
             return;
