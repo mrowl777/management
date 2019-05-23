@@ -71,6 +71,7 @@ function add_staff(e) {
     var _surname = $('.surname').val();
     var _last_name = $('.last_name').val();
     var _time = $( "#usr_time option:selected" ).val();
+    if( _surname != '' && _last_name != '' && name != '' ){
         $.post(
             "index.php",
             {
@@ -82,6 +83,9 @@ function add_staff(e) {
             },
             on_base_answer
         );
+    }else{
+     alert('Заполните все поля!');
+    }
     
 }
 
