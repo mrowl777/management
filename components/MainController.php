@@ -250,7 +250,7 @@ class MainController extends db_handler {
             $time_var[$row['type']]=$row['time'];
         }
 
-        $DATA['header_left'] = '';
+        $DATA['header_left'] = 'not_required';
         $DATA['header_right'] = '';
 
         if(!$this->_on_get_rights_usr()){
