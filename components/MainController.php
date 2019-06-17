@@ -293,11 +293,11 @@ class MainController extends db_handler {
         }
 
         if( !$l_counter ){
-            $hidden_left = true;
+            $hidden_left = 'not_required';
         }
 
         if( !$r_counter){
-            $hidden_right = true;
+            $hidden_right = 'not_required';
         }
 
         list($l_color, $r_color) = $this->generate_bg( $l_counter, $r_counter );
