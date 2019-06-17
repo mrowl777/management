@@ -72,7 +72,7 @@ function add_staff(e) {
     var _last_name = $('.last_name').val();
     var _time = $( "#usr_time option:selected" ).val();
     alert(name);
-    alert( !/^[А-ЯЁ][а-яё]*/.test(name) );
+    alert( !/^[А-ЯЁ][а-яё]*$/.test(name) );
     return;
     if( _surname != '' && _last_name != '' && name != '' ){
         $.post(
