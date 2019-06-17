@@ -256,7 +256,7 @@ class MainController extends db_handler {
         ];
 
         if(!$this->_on_get_rights_usr()){
-            $type = get_user_time_type( $_COOKIE['user_name'] );
+            $type = $this->get_user_time_type( $_COOKIE['user_name'] );
             if($type == 1){
                 $DATA['header']['left'] = 'not_required';
             }else{
