@@ -158,6 +158,9 @@ img {
     font-size: 19px;
     margin-bottom: 25px;
 }
-.set_my:before {
+.sm_off:before {
 	content: "\f204";
+}
+.sm_on:before {
+	content: "\f205";
 }

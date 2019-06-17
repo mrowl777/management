@@ -10,8 +10,14 @@ function init_events() {
 }
 
 function set_my(){
-    var cur = $(this).css('content');
-    alert(cur);
+    var el = $(this);
+    if( el.hasClass('sm_off') ){
+        el.removeClass('sm_off');
+        el.addClass('sm_on');
+    }else{
+        el.removeClass('sm_on');
+        el.addClass('sm_off');
+    }
 }
 
 function save_param(){
