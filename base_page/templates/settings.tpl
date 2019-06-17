@@ -13,7 +13,7 @@
 {%}
 </tr>
 {%*settings*} 
-<tr class="settings_tr {?!settings:is_req*} not_required{?}">
+<tr class="settings_tr {?!*settings:is_req*} not_required{?}">
 <td>{*settings:l_date*}</td>
 <td class="{*settings:left_side_color*}">{*settings:left_side*}</td>
 <td class="{*settings:right_side_color*}">{*settings:right_side*}</td>
