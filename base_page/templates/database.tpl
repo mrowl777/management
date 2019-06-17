@@ -50,7 +50,7 @@
     {?* staffs:is_active = 0 *}
     {* <td title="Восстановить сотрудника" class='set_worker'><i class="icon-large fa-user-plus"></i></td> *}
     <td>
-      <i title="Восстановить сотрудника" class="icon-large fa-user-plus set_worker"></i>
+      <i title="Восстановить сотрудника" class="icon-large icon-user-plus set_worker"></i>
       <i title="Удалить сотрудника" class="icon-large icon-delete-user remove_worker"></i>
     </td>
     {?}
