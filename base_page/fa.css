@@ -259,12 +259,12 @@
   .icon-umbrella:before             { content: "\f0e9"; }
   .icon-paste:before                { content: "\f0ea"; }
   .icon-user-md:before              { content: "\f200"; }
-  .icon-user-plus:before            { content: "\f204"; }
+  .icon-user-plus:before            { content: "\f234"; }
   .icon-check-circle:before         { content: "\f00c"; }
   .icon-times:before                { content: "\f00d"; }
   .icon-remove-user:before                { content: "\f205"; }
   .icon-delete-user:before                { content: "\f235"; }
-  .fa-user-plus:before                { content: "\f234"; }
+  .fa-user-plus:before                { content: "\f204"; }
   .icon-crown-user:before                { content: "\f084"; }
   .icon-change:before                { content: "\f021"; }
   .icon-ok:before                { content: "\f14a"; }
