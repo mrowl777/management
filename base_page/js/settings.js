@@ -14,11 +14,11 @@ function set_my(){
     if( el.hasClass('sm_off') ){
         el.removeClass('sm_off');
         el.addClass('sm_on');
-        $('.not_required').hide(500);
+        $('.not_required').hide();
     }else{
         el.removeClass('sm_on');
         el.addClass('sm_off');
-        $('.not_required').show(500);
+        $('.not_required').show();
     }
 }
 
