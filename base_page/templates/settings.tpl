@@ -2,7 +2,7 @@
 {?!*is_admin*}
 <div class="toggler">
 <p>Показывать только мое</p>
-<i class="icon-large fa-user-plus set_worker"></i>
+<i class="icon-large set_my"></i>
 </div>
 {?}
 <table border="1" class="settings_table">

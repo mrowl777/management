@@ -6,7 +6,11 @@ function init_events() {
     $('[name=add_btn]').on('click', form_render);
     $('[name=remove_btn]').on('click', rm_param);
     $('input').on('keydown', btn_activator );
+    $('.set_my').on('click', set_my);
+}
 
+function set_my(){
+    var cur = $(this).css('content');
 }
 
 function save_param(){
