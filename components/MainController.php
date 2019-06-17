@@ -270,7 +270,7 @@ class MainController extends db_handler {
         $l_counter = 0;
         $r_counter = 0;
         $is_req = false;
-        $hidden_left = true;
+        $hidden_left = false;
         $hidden_right = false;
         foreach($uids as $id){
             if(isset($staff_list[$id])){
@@ -292,13 +292,13 @@ class MainController extends db_handler {
             }
         }
 
-        if( $l_counter == 0 ){
-            $hidden_left = true;
-        }
+        // if( $l_counter == 0 ){
+        //     $hidden_left = true;
+        // }
 
-        if( $r_counter == 0 ){
-            $hidden_right = true;
-        }
+        // if( $r_counter == 0 ){
+        //     $hidden_right = true;
+        // }
 
         list($l_color, $r_color) = $this->generate_bg( $l_counter, $r_counter );
         
@@ -309,8 +309,8 @@ class MainController extends db_handler {
             'right_side_color' => $r_color,
             'l_date' => $_date,
             'is_req_date' => $is_req,
-            'hide_left' => $hidden_left,
-            'hide_right' => $hidden_right
+            'hide_left' => $l_counter,
+            'hide_right' => $r_counter
         ];
         return $data;
     }
