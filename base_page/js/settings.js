@@ -11,6 +11,7 @@ function init_events() {
 
 function set_my(){
     var cur = $(this).css('content');
+    alert(cur);
 }
 
 function save_param(){
