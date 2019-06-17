@@ -250,17 +250,15 @@ class MainController extends db_handler {
             $time_var[$row['type']]=$row['time'];
         }
 
-        $DATA['header'] = [
-            'left' => '',
-            'right' => ''
-        ];
+        $DATA['header_left'] = '';
+        $DATA['header_right'] = '';
 
         if(!$this->_on_get_rights_usr()){
             $type = $this->get_user_time_type( $_COOKIE['user_name'] );
             if($type == 1){
-                $DATA['header']['left'] = 'not_required';
+                $DATA['header_left'] = 'not_required';
             }else{
-                $DATA['header']['right'] = 'not_required';
+                $DATA['header_right'] = 'not_required';
             }
         }
         
