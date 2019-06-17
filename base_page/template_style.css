@@ -151,3 +151,10 @@ img {
 	float: right;
     margin: 0 10px 0 -30px;
 }
+.toggler{
+	display: flex;
+    width: 290px;
+    justify-content: space-between;
+    font-size: 19px;
+    margin-bottom: 25px;
+}

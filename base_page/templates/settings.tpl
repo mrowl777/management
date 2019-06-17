@@ -1,6 +1,6 @@
 <div class="content_box">
 {?!*is_admin*}
-<div>
+<div class="toggler">
 <p>Показывать только мое</p>
 <i class="icon-large fa-user-plus set_worker"></i>
 </div>
