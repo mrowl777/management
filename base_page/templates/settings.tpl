@@ -9,7 +9,7 @@
 <tr>
 <th>ДАТА</th>
 {%*times*}
-  <th class = "{?*settings:hide_left* && *times:^KEY* == 1 || *settings:hide_right* && *times:^KEY* == 2 } not_required{?}" >{*times:*}</th>
+  <th >{*times:*}</th>
 {%}
 </tr>
 {%*settings*} 
