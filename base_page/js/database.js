@@ -73,17 +73,21 @@ function add_staff(e) {
     var _surname = $('.surname').val();
     var _last_name = $('.last_name').val();
     var _time = $( "#usr_time option:selected" ).val();
-    alert(name);
-    alert( name.replace(/[^a-яА-ЯЁЪёъйЙ]/ig,"") );
-    return;
+    var modified_name = name.replace(/[^a-яА-ЯЁЪёъйЙ]/ig,"");
+    var modified_surname = _surname.replace(/[^a-яА-ЯЁЪёъйЙ]/ig,"");
+    var modified_last_name = _last_name.replace(/[^a-яА-ЯЁЪёъйЙ]/ig,"");
+    if( name !== modified_name || _surname !== modified_surname || _last_name !== modified_last_name ){
+        alert('Были удалены запрещенные символы. Проверьте правильность данных и повторите отправку формы.')
+        return;
+    }
     if( _surname != '' && _last_name != '' && name != '' ){
         $.post(
             "index.php",
             {
                 action: "add_staff",
-                first_name: name,
-                last_name: _last_name,
-                surname: _surname,
+                first_name: modified_name,
+                last_name: modified_last_name,
+                surname: modified_surname,
                 time: _time,
             },
             on_base_answer
