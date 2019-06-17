@@ -253,7 +253,7 @@ class MainController extends db_handler {
         $DATA['header'] = [
             'left' => '',
             'right' => ''
-        ]
+        ];
 
         if(!$this->_on_get_rights_usr()){
             $type = get_user_time_type( $_COOKIE['user_name'] );
