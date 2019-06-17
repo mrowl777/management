@@ -270,12 +270,16 @@ class MainController extends db_handler {
         $right_part = '';
         $l_counter = 0;
         $r_counter = 0;
+        $is_req = false;
         foreach($uids as $id){
             if(isset($staff_list[$id])){
                 $time = $staff_list[$id]['time'];
                 $is_mi = '';
                 if( !$is_admin ){
                     $is_mi = $staff_list[$id]['login'] == $_COOKIE['user_name'] ? '' : 'not_required';
+                    if( $staff_list[$id]['login'] == $_COOKIE['user_name'] ){
+                        $is_req = true;
+                    }
                 }
                 if( $time == '1' ){
                     $left_part .= "<div class = ".$is_mi." >" . $staff_list[$id]['name'] . "</div>";
@@ -294,7 +298,8 @@ class MainController extends db_handler {
             'left_side_color' => $l_color,
             'right_side' => $right_part,
             'right_side_color' => $r_color,
-            'l_date' => $_date
+            'l_date' => $_date,
+            'is_req' => $is_req 
         ];
         return $data;
     }
