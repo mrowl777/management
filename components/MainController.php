@@ -292,11 +292,11 @@ class MainController extends db_handler {
             }
         }
 
-        if( $left_part == '' ){
+        if( $l_counter == 0 ){
             $hidden_left = true;
         }
 
-        if( $right_part == '' ){
+        if( $r_counter == 0 ){
             $hidden_right = true;
         }
 
