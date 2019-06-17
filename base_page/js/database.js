@@ -74,7 +74,7 @@ function add_staff(e) {
     var _last_name = $('.last_name').val();
     var _time = $( "#usr_time option:selected" ).val();
     alert(name);
-    alert( name.match(regexp) );
+    alert( name.replace(/[^a-яА-ЯЁЪёъйЙ]/ig,"") );
     return;
     if( _surname != '' && _last_name != '' && name != '' ){
         $.post(
