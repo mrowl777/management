@@ -238,7 +238,7 @@ class MainController extends db_handler {
         // $time_table = $this->get_timetable();
         $graphics = $this->get_times_table();
         $staff_list = $this->make_staffs_array();
-        $cur_timestamp = time();
+        $cur_timestamp = time() + (24 * 60 * 60);
         
         for($i=0;$i<30;$i++) {
             $_date = date('d.m.Y', $cur_timestamp);
