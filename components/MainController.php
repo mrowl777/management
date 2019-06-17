@@ -262,7 +262,7 @@ class MainController extends db_handler {
     }
 
     function build_staff( $_date, $staff_list ){
-        $is_user = $this->_on_get_rights_usr();
+        $is_admin = $this->_on_get_rights_usr();
 
         $uids = $this->get_staff_by_date( $_date );
         $uids = explode(",",$uids);
@@ -274,7 +274,7 @@ class MainController extends db_handler {
             if(isset($staff_list[$id])){
                 $time = $staff_list[$id]['time'];
                 $is_mi = '';
-                if( $is_user ){
+                if( !$is_admin ){
                     $is_mi = $staff_list[$id]['login'] == $_COOKIE['user_name'] ? '' : 'not_required';
                 }
                 if( $time == '1' ){
