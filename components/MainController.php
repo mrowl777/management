@@ -270,8 +270,8 @@ class MainController extends db_handler {
         $l_counter = 0;
         $r_counter = 0;
         $is_req = false;
-        $hidden_left = false;
-        $hidden_right = false;
+        // $hidden_left = false;
+        // $hidden_right = false;
         foreach($uids as $id){
             if(isset($staff_list[$id])){
                 $time = $staff_list[$id]['time'];
