@@ -277,10 +277,10 @@ class MainController extends db_handler {
             if(isset($staff_list[$id])){
                 $time = $staff_list[$id]['time'];
                 if( $time == '1' ){
-                    $left_part .= $staff_list[$id]['name'] . "<br/>";
+                    $left_part .= "<div>" . $staff_list[$id]['name'] . "</div><br/>";
                     $l_counter++;
                 }else{
-                    $right_part .= $staff_list[$id]['name'] . "<br/>"; 
+                    $right_part .= "<div>" . $staff_list[$id]['name'] . "</div><br/>"; 
                     $r_counter++;
                 }
             }
