@@ -131,32 +131,31 @@ class MainController extends db_handler {
     function dates_builder( $_date ){
         $dates = explode( ":", $_date );
         $cur_time = time();
-        $counter = 0;
-        $length = 0;
-
+        // $counter = 0;
+        // $length = 0;
         
-
         foreach( $dates as $k => $date ){
             if( $date <= $cur_time ){
-                $counter++;
-                $length--;
+                // $counter++;
+                // $length--;
                 unset($dates[$k]);
             }
-            $length++;
+            // $length++;
         }
 
-        for($i=0;$i<$counter;$i++){
-            $dates[] = (end($dates) + 48 * 60 * 60);
-            $length++;
+        // for($i=0;$i<$counter;$i++){
+            // $dates[] = (end($dates) + 48 * 60 * 60);
+            // $length++;
         }
 
-        if($length < 30){
+        while(count($dates) < 30){
+            // if($length < 30){
             
-            $iterations = 30 - $length;
+            // $iterations = 30 - $length;
 
-            for($i=0;$i<$iterations;$i++){
+            // for($i=0;$i<$iterations;$i++){
                 $dates[] = (end($dates) + 48 * 60 * 60);
-            }
+            // }
         }
 
         
@@ -239,12 +238,11 @@ class MainController extends db_handler {
         $time_var = [];
         $dates_list = [];
         
-        $DATA['is_admin'] = $this->_on_get_rights_usr();
-        $time_table = $this->get_timetable();
+        // $time_table = $this->get_timetable();
         $graphics = $this->get_times_table();
         $staff_list = $this->make_staffs_array();
         $cur_timestamp = time();
-
+        
         for($i=0;$i<30;$i++) {
             $_date = date('d.m.Y', $cur_timestamp);
             $timetable[] = $this->build_staff( $_date, $staff_list );
@@ -254,9 +252,9 @@ class MainController extends db_handler {
         while ($row = $graphics->fetch_assoc()) {
             $time_var[$row['type']]=$row['time'];
         }
-
+        
         $DATA['times'] = $time_var;
-
+        $DATA['is_admin'] = $this->_on_get_rights_usr();
         $DATA['settings'] = $timetable;
 
         $tpl = '../base_page/templates/settings.tpl';
