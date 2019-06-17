@@ -149,3 +149,7 @@ img {
 	/* background: chartreuse; */
 	border: 2px solid chartreuse;
 }
+.remove_worker{
+	float: right;
+    margin: 0 10px 0 -30px;
+}
