@@ -140,15 +140,17 @@ class db_handler {
 
     function add_staff( $first_name, $last_name, $surname, $time = '', $username, $pass ){
         $db_helper = $this->connect_db();
-        /** заполняем данные сотрудника */
-        $query = "INSERT INTO `staff_data`(`id`, `first_name`, `last_name`, `surname`, `is_active`, `start_date`, `work_time_type`) VALUES ('','" . $first_name . "','" . $last_name . "', '".$surname."' , '1', CURRENT_TIMESTAMP, '".$time."')";
-        $result = $db_helper->query( $query );
-       
+
         /** проверяем доступность логина */
         if(!$this->check_free_name( $username )){
             $username = $username . "_" . rand(0, 100);
             $is_exist = $this->check_free_name( $username );
         }
+
+        /** заполняем данные сотрудника */
+        $query = "INSERT INTO `staff_data`(`id`, `first_name`, `last_name`, `surname`, `is_active`, `start_date`, `work_time_type`, `login`) VALUES ('','" . $first_name . "','" . $last_name . "', '".$surname."' , '1', CURRENT_TIMESTAMP, '".$time."', '".$username."')";
+        $result = $db_helper->query( $query );
+        
         /**генерим пароль */
         $pass_md = md5(md5($pass)); 
          /**заводим ему учетку  */

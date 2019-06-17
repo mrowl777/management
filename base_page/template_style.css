@@ -142,11 +142,9 @@ img {
     margin-bottom: 30px;
 }
 .status_red{
-	/* background: red; */
 	border: 2px solid red;
 }
 .status_green{
-	/* background: chartreuse; */
 	border: 2px solid chartreuse;
 }
 .remove_worker{
