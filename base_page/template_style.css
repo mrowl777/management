@@ -158,6 +158,6 @@ img {
     font-size: 19px;
     margin-bottom: 25px;
 }
-.set_my{
+.set_my:before {
 	content: "\f204";
 }
