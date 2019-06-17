@@ -41,6 +41,11 @@ if( isset($_POST) ){
             die();
         break;
 
+        case 'remove_worker':
+            $call->_on_remove_worker();
+            die();
+        break;
+
         case 'add_staff':
             $call->_on_add_staff();
             die();

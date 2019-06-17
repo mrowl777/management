@@ -3,6 +3,7 @@ init_events();
 function init_events() {
     $('.delete_panel_user').on('click', delete_panel_usr);
     $('.set_worker').on('click', set_worker);
+    $('.remove_worker').on('click', remove_worker);
     $('.add_staff').on('click', show_form);
     $('.load').on('click', add_staff);
     $('.change_pass').on('click', change_pass);
@@ -51,8 +52,24 @@ function on_pass_changed(data){
     $('.content_box').replaceWith(data);
 }
 
+function remove_worker(e) {
+    var username = $(this).parent().parent().attr('id');
+    if(confirm("Вы уверены?")){
+        $.post(
+            "index.php",
+            {
+                action: "remove_worker",
+                username: username
+            },
+            on_base_answer
+        );
+    }
+    
+}
+
 function set_worker(e) {
-    var username = $(this).parent().attr('id');
+    // var username = $(this).parent().attr('id');
+    var username = $(this).parent().parent().attr('id');
     if(confirm("Вы уверены?")){
         $.post(
             "index.php",
@@ -67,8 +84,6 @@ function set_worker(e) {
 }
 
 function add_staff(e) {
-    var regexp = /[а-яёА-ЯЁ]/g;
-
     var name = $('.name').val();
     var _surname = $('.surname').val();
     var _last_name = $('.last_name').val();
@@ -77,10 +92,10 @@ function add_staff(e) {
     var modified_surname = _surname.replace(/[^a-яА-ЯЁЪёъйЙ]/ig,"");
     var modified_last_name = _last_name.replace(/[^a-яА-ЯЁЪёъйЙ]/ig,"");
     if( name !== modified_name || _surname !== modified_surname || _last_name !== modified_last_name ){
-        alert('Были удалены запрещенные символы. Проверьте правильность данных и повторите отправку формы.')
         $('.name').val(modified_name);
         $('.surname').val(modified_surname);
         $('.last_name').val(modified_last_name);
+        alert('Были удалены запрещенные символы. Проверьте правильность данных и повторите отправку формы.')
         return;
     }
     if( _surname != '' && _last_name != '' && name != '' ){

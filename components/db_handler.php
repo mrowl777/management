@@ -131,6 +131,13 @@ class db_handler {
         $this->close_connection( $db_helper );
     }
 
+    function delete_user( $id ){
+        $db_helper = $this->connect_db();
+        $query = "DELETE FROM `staff_data` WHERE `id` = '".$id."'";
+        $db_helper->query( $query );
+        $this->close_connection( $db_helper );
+    }
+
     function add_staff( $first_name, $last_name, $surname, $time = '', $username, $pass ){
         $db_helper = $this->connect_db();
         /** заполняем данные сотрудника */

@@ -88,7 +88,12 @@ class MainController extends db_handler {
     }
 
     function _on_set_worker(){
-        $this-> set_active( $_POST['username'] );
+        $this->set_active( $_POST['username'] );
+        $this->_on_manage_db();
+    }
+
+    function _on_remove_worker(){
+        $this->delete_user( $_POST['username'] );
         $this->_on_manage_db();
     }
 
