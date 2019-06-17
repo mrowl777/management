@@ -9,7 +9,7 @@
 <tr>
 <th>ДАТА</th>
 {%*times*}
-  <th class= "{?*times:^KEY = 1*} {*header_left*} {?}{?*times:^KEY*=2}{*header_right*}{?}" >{*times:*}</th>
+  <th class= "{?*times:^KEY = 0*} {*header_left*} {?}{?*times:^KEY*=1}{*header_right*}{?}" >{*times:*}</th>
 {%}
 </tr>
 {%*settings*} 
