@@ -270,8 +270,6 @@ class MainController extends db_handler {
         $l_counter = 0;
         $r_counter = 0;
         $is_req = false;
-        // $hidden_left = false;
-        // $hidden_right = false;
         foreach($uids as $id){
             if(isset($staff_list[$id])){
                 $time = $staff_list[$id]['time'];
@@ -292,11 +290,11 @@ class MainController extends db_handler {
             }
         }
 
-        if( !$l_counter ){
+        if( $l_counter ){
             $hidden_left = 'not_required';
         }
 
-        if( !$r_counter){
+        if( $r_counter){
             $hidden_right = 'not_required';
         }
 
