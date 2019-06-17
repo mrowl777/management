@@ -9,14 +9,14 @@
 <tr>
 <th>ДАТА</th>
 {%*times*}
-  <th>{*times:*}</th>
+  <th class = "{?*settings:hide_left* && *times:^KEY* == 1 || *settings:hide_right* && *times:^KEY* == 2 } not_required{?}" >{*times:*}</th>
 {%}
 </tr>
 {%*settings*} 
-<tr class="settings_tr {?!*settings:is_req*} not_required{?}">
+<tr class="settings_tr {?!*settings:is_req_date*} not_required{?}">
 <td>{*settings:l_date*}</td>
-<td class="{*settings:left_side_color*}">{*settings:left_side*}</td>
-<td class="{*settings:right_side_color*}">{*settings:right_side*}</td>
+<td class="{*settings:left_side_color*} {?*settings:hide_left*} not_required{?}">{*settings:left_side*}</td>
+<td class="{*settings:right_side_color*} {?*settings:hide_right*} not_required{?}">{*settings:right_side*}</td>
 </tr>
 {%}
 </table>

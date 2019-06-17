@@ -236,7 +236,6 @@ class MainController extends db_handler {
         $time_var = [];
         $dates_list = [];
         
-        // $time_table = $this->get_timetable();
         $graphics = $this->get_times_table();
         $staff_list = $this->make_staffs_array();
         $cur_timestamp = time() + (24 * 60 * 60);
@@ -271,6 +270,8 @@ class MainController extends db_handler {
         $l_counter = 0;
         $r_counter = 0;
         $is_req = false;
+        $hidden_left = false;
+        $hidden_right = false;
         foreach($uids as $id){
             if(isset($staff_list[$id])){
                 $time = $staff_list[$id]['time'];
@@ -291,6 +292,14 @@ class MainController extends db_handler {
             }
         }
 
+        if( $left_part == '' ){
+            $hidden_left = true;
+        }
+
+        if( $right_part == '' ){
+            $hidden_right = true;
+        }
+
         list($l_color, $r_color) = $this->generate_bg( $l_counter, $r_counter );
         
         $data = [
@@ -299,7 +308,9 @@ class MainController extends db_handler {
             'right_side' => $right_part,
             'right_side_color' => $r_color,
             'l_date' => $_date,
-            'is_req' => $is_req 
+            'is_req_date' => $is_req,
+            'hide_left' => $hidden_left,
+            'hide_right' => $hidden_right
         ];
         return $data;
     }
