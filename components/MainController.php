@@ -175,6 +175,14 @@ class MainController extends db_handler {
             }
         }
 
+        if( count($dates) == 0 ){
+            $dates[] = $cur_time;
+        }
+
+        if( count($dates) == 1 ){
+            $dates[] = (end($dates) + 24 * 60 * 60);
+        }
+
         while(count($dates) < 30){
             // $dates[] = (end($dates) + 48 * 60 * 60);
 
