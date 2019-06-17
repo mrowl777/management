@@ -71,6 +71,9 @@ function add_staff(e) {
     var _surname = $('.surname').val();
     var _last_name = $('.last_name').val();
     var _time = $( "#usr_time option:selected" ).val();
+    alert(name);
+    alert( name.replace(  /^([а-яА-ЯЁё]+)$/u, "" ) );
+    return;
     if( _surname != '' && _last_name != '' && name != '' ){
         $.post(
             "index.php",
