@@ -128,53 +128,18 @@ class MainController extends db_handler {
         return implode(":", $n_dates);
     }
 
-    // function dates_builder( $_date ){
-    //     $dates = explode( ":", $_date );
-    //     $cur_time = time();
-    //     // $counter = 0;
-    //     // $length = 0;
-        
-    //     foreach( $dates as $k => $date ){
-    //         if( $date <= $cur_time ){
-    //             // $counter++;
-    //             // $length--;
-    //             unset($dates[$k]);
-    //         }
-    //         // $length++;
-    //     }
-
-    //     // for($i=0;$i<$counter;$i++){
-    //         // $dates[] = (end($dates) + 48 * 60 * 60);
-    //         // $length++;
-    //     // }
-
-    //     while(count($dates) < 30){
-    //         // if($length < 30){
-            
-    //         // $iterations = 30 - $length;
-
-    //         // for($i=0;$i<$iterations;$i++){
-    //             $dates[] = (end($dates) + 48 * 60 * 60);
-    //         // }
-    //     }
-
-        
-    //     $str = implode(":", $dates);
-    //     $n_dates = $this->build_normal_dates( $dates );
-
-    //     return array($str, $n_dates);
-    // }
-
     function dates_builder( $_date ){
         $dates = explode( ":", $_date );
         $cur_time = time();
         
         foreach( $dates as $k => $date ){
-            if( $date < $cur_time ){
+            if( $date <= $cur_time ){
                 unset($dates[$k]);
             }
         }
 
+        /** ненужные проверки */
+        //шутка, нужные, но я не знаю, зачем
         if( count($dates) == 0 ){
             $dates[] = $cur_time;
         }
@@ -184,8 +149,6 @@ class MainController extends db_handler {
         }
 
         while(count($dates) < 30){
-            // $dates[] = (end($dates) + 48 * 60 * 60);
-
             $comparing_els = array_slice($dates, -2);
             if($comparing_els[1] - $comparing_els[0] == 24*60*60){
                 $dates[] = ( $comparing_els[1]  + 72*60*60 );
