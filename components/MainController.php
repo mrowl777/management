@@ -249,6 +249,20 @@ class MainController extends db_handler {
         while ($row = $graphics->fetch_assoc()) {
             $time_var[$row['type']]=$row['time'];
         }
+
+        $DATA['header'] = [
+            'left' => '',
+            'right' => ''
+        ]
+
+        if(!$this->_on_get_rights_usr()){
+            $type = get_user_time_type( $_COOKIE['user_name'] );
+            if($type == 1){
+                $DATA['header']['left'] = 'not_required';
+            }else{
+                $DATA['header']['right'] = 'not_required';
+            }
+        }
         
         $DATA['times'] = $time_var;
         $DATA['is_admin'] = $this->_on_get_rights_usr();

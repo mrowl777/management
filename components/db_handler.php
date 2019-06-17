@@ -185,6 +185,16 @@ class db_handler {
         return $rights['is_admin'];
     }
 
+    function get_user_time_type( $login ){
+        $db_helper = $this->connect_db();
+        $query = "SELECT `work_time_type` FROM `staff_data` WHERE `login` = '".$login."'";
+        $work_time_type = $db_helper->query( $query );
+        $work_time_type = $work_time_type->fetch_assoc();
+        $this->close_connection( $db_helper );
+
+        return $work_time_type['work_time_type'];
+    }
+
     function update_password( $name, $password ){
         $db_helper = $this->connect_db();
         $query = "UPDATE panel_users SET password = '".$password."' WHERE nickname = '" . $name . "'";
