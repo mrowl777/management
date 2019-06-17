@@ -136,6 +136,7 @@ class db_handler {
         $query = "SELECT `login` FROM `staff_data` WHERE `id` = '".$id."'";
         $login = $db_helper->query( $query );
         $login = $login->fetch_assoc();
+        $login = $login['login'];
         $query = "DELETE FROM `panel_users` WHERE `nickname` = '".$login."'";
         $db_helper->query( $query );
         $query = "DELETE FROM `staff_data` WHERE `id` = '".$id."'";
