@@ -170,7 +170,7 @@ class MainController extends db_handler {
         $cur_time = time();
         
         foreach( $dates as $k => $date ){
-            if( $date <= $cur_time ){
+            if( $date < $cur_time ){
                 unset($dates[$k]);
             }
         }
