@@ -283,19 +283,17 @@ class MainController extends db_handler {
                 if( $time == '1' ){
                     $left_part .= "<div class = ".$is_mi." >" . $staff_list[$id]['name'] . "</div>";
                     $l_counter++;
+                    if( $staff_list[$id]['login'] == $_COOKIE['user_name'] ){
+                        $hidden_right = 'not_required';
+                    }
                 }else{
                     $right_part .= "<div class = ".$is_mi." >" . $staff_list[$id]['name'] . "</div>"; 
                     $r_counter++;
+                    if( $staff_list[$id]['login'] == $_COOKIE['user_name'] ){
+                        $hidden_left = 'not_required';
+                    }
                 }
             }
-        }
-
-        if( $l_counter ){
-            $hidden_left = 'not_required';
-        }
-
-        if( $r_counter){
-            $hidden_right = 'not_required';
         }
 
         list($l_color, $r_color) = $this->generate_bg( $l_counter, $r_counter );
