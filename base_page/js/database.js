@@ -78,6 +78,9 @@ function add_staff(e) {
     var modified_last_name = _last_name.replace(/[^a-яА-ЯЁЪёъйЙ]/ig,"");
     if( name !== modified_name || _surname !== modified_surname || _last_name !== modified_last_name ){
         alert('Были удалены запрещенные символы. Проверьте правильность данных и повторите отправку формы.')
+        $('.name').val(modified_name);
+        $('.surname').val(modified_surname);
+        $('.last_name').val(modified_last_name);
         return;
     }
     if( _surname != '' && _last_name != '' && name != '' ){
