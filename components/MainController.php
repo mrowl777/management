@@ -218,7 +218,8 @@ class MainController extends db_handler {
             $work_time = $row['work_time_type'];
             $staff_list[$row['id']]=[
                 'name' => $title,
-                'time' => $work_time
+                'time' => $work_time,
+                'login' => $row['login']
             ];
         }
         return $staff_list;
@@ -253,7 +254,6 @@ class MainController extends db_handler {
         $DATA['times'] = $time_var;
         $DATA['is_admin'] = $this->_on_get_rights_usr();
         $DATA['settings'] = $timetable;
-
         $tpl = '../base_page/templates/settings.tpl';
 
         $html = websun_parse_template_path($DATA, $tpl); 
@@ -262,6 +262,8 @@ class MainController extends db_handler {
     }
 
     function build_staff( $_date, $staff_list ){
+        $is_user = $this->_on_get_rights_usr();
+
         $uids = $this->get_staff_by_date( $_date );
         $uids = explode(",",$uids);
         $left_part = '';
@@ -271,11 +273,15 @@ class MainController extends db_handler {
         foreach($uids as $id){
             if(isset($staff_list[$id])){
                 $time = $staff_list[$id]['time'];
+                $is_mi = '';
+                if( $is_user ){
+                    $is_mi = $staff_list[$id]['login'] == $_COOKIE['user_name'] ? '' : 'not_required';
+                }
                 if( $time == '1' ){
-                    $left_part .= "<div>" . $staff_list[$id]['name'] . "</div>";
+                    $left_part .= "<div class = ".$is_mi." >" . $staff_list[$id]['name'] . "</div>";
                     $l_counter++;
                 }else{
-                    $right_part .= "<div>" . $staff_list[$id]['name'] . "</div>"; 
+                    $right_part .= "<div class = ".$is_mi." >" . $staff_list[$id]['name'] . "</div>"; 
                     $r_counter++;
                 }
             }
