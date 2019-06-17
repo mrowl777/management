@@ -1,4 +1,10 @@
 <div class="content_box">
+{?!*is_admin*}
+<div>
+<p>Показывать только мое</p>
+<i class="icon-large fa-user-plus set_worker"></i>
+</div>
+{?}
 <table border="1" class="settings_table">
 <tr>
 <th>ДАТА</th>

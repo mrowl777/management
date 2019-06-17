@@ -239,7 +239,7 @@ class MainController extends db_handler {
         $time_var = [];
         $dates_list = [];
         
-
+        $DATA['is_admin'] = $this->_on_get_rights_usr();
         $time_table = $this->get_timetable();
         $graphics = $this->get_times_table();
         $staff_list = $this->make_staffs_array();
