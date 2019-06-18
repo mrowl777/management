@@ -29,7 +29,7 @@ class MainController extends db_handler {
         $title = 'супервайзер';
 
         if(!$is_admin){
-            $obj = get_user_data( $login );
+            $obj = $this->get_user_data( $login );
             $title = $obj['first_name'] . ' ' . $obj['surname'];
         }
 
