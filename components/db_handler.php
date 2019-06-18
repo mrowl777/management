@@ -141,6 +141,8 @@ class db_handler {
         $db_helper->query( $query );
         $query = "DELETE FROM `staff_data` WHERE `id` = '".$id."'";
         $db_helper->query( $query );
+        $query = "DELETE FROM `timetable` WHERE `uid` =  '".$id."'";
+        $db_helper->query( $query );
         $this->close_connection( $db_helper );
     }
 
