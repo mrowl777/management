@@ -1,3 +1,3 @@
 <div class="content_box">
-<p>Приветствую вас, {*name*}</p>
+<p class='wlcm'>Приветствую вас, {*name*}</p>
 </div>
