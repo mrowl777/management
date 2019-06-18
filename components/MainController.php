@@ -30,6 +30,7 @@ class MainController extends db_handler {
 
         if(!$is_admin){
             $obj = $this->get_user_data( $_COOKIE["user_name"] );
+            die(var_dump($obj));
             $title = $obj['first_name'] . ' ' . $obj['surname'];
         }
 
