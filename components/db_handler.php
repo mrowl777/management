@@ -185,6 +185,16 @@ class db_handler {
         return $rights['is_admin'];
     }
 
+    function get_user_data( $login ){
+        $db_helper = $this->connect_db();
+        $query = "SELECT * FROM `staff_data` WHERE `login` = '".$login."'";
+        $data = $db_helper->query( $query );
+        $data = $data->fetch_assoc();
+        $this->close_connection( $db_helper );
+
+        return $data;
+    }
+
     function get_user_time_type( $login ){
         $db_helper = $this->connect_db();
         $query = "SELECT `work_time_type` FROM `staff_data` WHERE `login` = '".$login."'";

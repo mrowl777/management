@@ -25,6 +25,16 @@ class MainController extends db_handler {
 
         $DATA = [];
 
+        $is_admin = $this->_on_get_rights_usr();
+        $title = 'супервайзер';
+
+        if(!$is_admin){
+            $obj = get_user_data( $login );
+            $title = $obj['first_name'] . ' ' . $obj['surname'];
+        }
+
+        $DATA['name'] = $title;
+
         $tpl = '../base_page/templates/index.tpl';
 
         $html = websun_parse_template_path($DATA, $tpl); 
